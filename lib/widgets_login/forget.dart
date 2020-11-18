@@ -10,10 +10,10 @@ class ForgetWidget extends StatelessWidget {
 }
 class Forgot extends StatefulWidget {
   @override
-  _ForgotState createState() => _ForgotState();
+  ForgotState createState() => ForgotState();
 }
 
-class _ForgotState extends State<Forgot> {
+class ForgotState extends State<Forgot> {
   @override
   Widget build(BuildContext context) {
     return Padding(

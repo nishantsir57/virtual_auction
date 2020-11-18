@@ -10,10 +10,10 @@ class TextLogiWidget extends StatelessWidget {
 }
 class TextLogin extends StatefulWidget {
   @override
-  _TextLoginState createState() => _TextLoginState();
+  TextLoginState createState() => TextLoginState();
 }
 
-class _TextLoginState extends State<TextLogin> {
+class TextLoginState extends State<TextLogin> {
   @override
   Widget build(BuildContext context) {
     return Padding(

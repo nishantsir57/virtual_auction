@@ -10,10 +10,10 @@ class NewEmailWidget extends StatelessWidget {
 }
 class NewEmail extends StatefulWidget {
   @override
-  _NewEmailState createState() => _NewEmailState();
+  NewEmailState createState() => NewEmailState();
 }
 
-class _NewEmailState extends State<NewEmail> {
+class NewEmailState extends State<NewEmail> {
   @override
   Widget build(BuildContext context) {
     return Padding(

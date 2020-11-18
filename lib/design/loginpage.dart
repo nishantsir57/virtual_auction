@@ -1,6 +1,7 @@
 import 'package:virtual_auction/widgets_login/buttonLogin.dart';
 import 'package:virtual_auction/widgets_login/first.dart';
 import 'package:virtual_auction/widgets_login/inputPhone.dart';
+import 'package:virtual_auction/widgets_login/newEmail.dart';
 import 'package:virtual_auction/widgets_login/password.dart';
 import 'package:virtual_auction/widgets_login/textLogin.dart';
 import 'package:virtual_auction/widgets_login/verticalText.dart';
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage>{
                   VerticalText(),
                   TextLogin(),
                 ]),
-                InputPhone(),
+                NewEmail(),
                 PasswordInput(),
                 LoginButton(),
                 FirstTime(),
