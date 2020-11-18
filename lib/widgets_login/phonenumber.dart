@@ -1,20 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PasswordInputWidget extends StatelessWidget {
+class PhoneNumberWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: PasswordInput(),
+      child: PhoneNumber(),
     );
   }
 }
-class PasswordInput extends StatefulWidget {
+class PhoneNumber extends StatefulWidget{
   @override
-  PasswordInputState createState() => PasswordInputState();
-}
+    PhoneNumberState createState()=> PhoneNumberState();
+  }
 
-class PasswordInputState extends State<PasswordInput> {
-  static String password;
+
+class PhoneNumberState extends State<PhoneNumber>{
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,19 +24,18 @@ class PasswordInputState extends State<PasswordInput> {
         height: 60,
         width: MediaQuery.of(context).size.width,
         child: TextField(
-          onChanged: (value) => password=value,
           style: TextStyle(
             color: Colors.white,
           ),
-          obscureText: true,
           decoration: InputDecoration(
             border: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.greenAccent,
-                width: 0.1
-              )
+                borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 0.1
+                )
             ),
-            labelText: 'Password',
+            fillColor: Colors.lightBlueAccent,
+            labelText: 'Phone Number',
             labelStyle: TextStyle(
               color: Colors.white70,
             ),

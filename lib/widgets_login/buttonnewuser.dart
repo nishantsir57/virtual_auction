@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/Signup.dart';
+import 'package:virtual_auction/widgets_login/inputPhone.dart';
+import 'package:virtual_auction/widgets_login/password.dart';
 
 class ButtonNewUserWidget extends StatelessWidget {
   @override
@@ -38,7 +41,18 @@ class _ButtonNewUserState extends State<ButtonNewUser> {
             color: Colors.white, borderRadius: BorderRadius.circular(30)),
         child: FlatButton(
           onPressed: (){
-            Navigator.pop(context);
+            Future<String> response=new Signup().signup(InputPhoneState.email, PasswordInputState.password);
+            if(response == 'success')
+              {
+                //pending code
+
+                Navigator.pop(context);
+              }
+            else
+              {
+
+              }
+
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "397199536765",
+    "firebase_url": "https://virtual-auction-94e7c.firebaseio.com",
+    "project_id": "virtual-auction-94e7c",
+    "storage_bucket": "virtual-auction-94e7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397199536765:android:7406c4bd64596d548d7714",
+        "android_client_info": {
+          "package_name": "org.virtual.virtual_auction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397199536765-kv17vg51umgm62f3ptir4qnql2dtuhq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCfijBjGH7d3au4QTnw813AfKEr0GAGeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397199536765-kv17vg51umgm62f3ptir4qnql2dtuhq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

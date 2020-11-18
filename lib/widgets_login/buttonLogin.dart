@@ -1,6 +1,9 @@
 import 'package:virtual_auction/design/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/Login.dart';
+import 'package:virtual_auction/widgets_login/inputPhone.dart';
+import 'package:virtual_auction/widgets_login/password.dart';
 
 class LoginButtonWidget extends StatelessWidget {
 @override
@@ -10,7 +13,6 @@ Widget build(BuildContext context) {
   );
 }
 }
-
 class LoginButton extends StatefulWidget{
   @override
     _LoginButtonState createState()=>_LoginButtonState();
@@ -42,10 +44,20 @@ class _LoginButtonState extends State<LoginButton>{
         ),
         child: FlatButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Home()),
-            );
+            Future<String> response = new Login().login(
+                InputPhoneState.email, PasswordInputState.password);
+            if (response.toString() == 'success') {
+              //Pending code
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            }
+            else
+              {
+
+              }
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

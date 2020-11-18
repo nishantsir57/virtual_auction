@@ -1,4 +1,5 @@
 import 'package:virtual_auction/widgets_login/buttonnewuser.dart';
+import 'package:virtual_auction/widgets_login/inputPhone.dart';
 import 'package:virtual_auction/widgets_login/phonenumber.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/widgets_login/newEmail.dart';
@@ -34,8 +35,8 @@ class _NewUserState extends State<NewUser> {
                     TextNew(),
                   ],
                 ),
-                NewNome(),
-                PhoneNumber(),
+                NewName(),
+                InputPhone(),
                 //NewEmail(),
                 PasswordInput(),
                 ButtonNewUser(),

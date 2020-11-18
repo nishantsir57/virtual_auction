@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class InputPhoneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,10 +9,11 @@ class InputPhoneWidget extends StatelessWidget {
 }
 class InputPhone extends StatefulWidget {
   @override
-  _InputPhoneState createState() => _InputPhoneState();
+  InputPhoneState createState() => InputPhoneState();
 }
 
-class _InputPhoneState extends State<InputPhone> {
+class InputPhoneState extends State<InputPhone> {
+  static String email;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,6 +22,7 @@ class _InputPhoneState extends State<InputPhone> {
         height: 60,
         width: MediaQuery.of(context).size.width,
         child: TextField(
+          onChanged: (value) => email=value,
           style: TextStyle(
             color: Colors.white,
           ),
