@@ -10,10 +10,11 @@ class PasswordInputWidget extends StatelessWidget {
 }
 class PasswordInput extends StatefulWidget {
   @override
-  _PasswordInputState createState() => _PasswordInputState();
+  PasswordInputState createState() => PasswordInputState();
 }
 
-class _PasswordInputState extends State<PasswordInput> {
+class PasswordInputState extends State<PasswordInput> {
+  static String password;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,6 +23,7 @@ class _PasswordInputState extends State<PasswordInput> {
         height: 60,
         width: MediaQuery.of(context).size.width,
         child: TextField(
+          onChanged: (value) => password=value,
           style: TextStyle(
             color: Colors.white,
           ),

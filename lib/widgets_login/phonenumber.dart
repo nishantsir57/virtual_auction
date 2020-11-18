@@ -11,11 +11,11 @@ class PhoneNumberWidget extends StatelessWidget {
 }
 class PhoneNumber extends StatefulWidget{
   @override
-    _PhoneNumberState createState()=> _PhoneNumberState();
+    PhoneNumberState createState()=> PhoneNumberState();
   }
 
 
-class _PhoneNumberState extends State<PhoneNumber>{
+class PhoneNumberState extends State<PhoneNumber>{
   @override
   Widget build(BuildContext context) {
     return Padding(

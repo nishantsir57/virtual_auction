@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 
-class NewNomeWidget extends StatelessWidget {
+class NewNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: NewNome(),
+      child: NewName(),
     );
   }
 }
-class NewNome extends StatefulWidget {
+class NewName extends StatefulWidget {
   @override
-  _NewNomeState createState() => _NewNomeState();
+  NewNameState createState() => NewNameState();
 }
 
-class _NewNomeState extends State<NewNome> {
+class NewNameState extends State<NewName> {
   @override
+  static String name;
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 50, left: 50, right: 50),
@@ -22,6 +23,7 @@ class _NewNomeState extends State<NewNome> {
         height: 60,
         width: MediaQuery.of(context).size.width,
         child: TextField(
+          onChanged: (value) => name=value,
           style: TextStyle(
             color: Colors.white,
           ),
