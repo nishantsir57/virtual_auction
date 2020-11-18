@@ -44,9 +44,9 @@ class _LoginButtonState extends State<LoginButton>{
         ),
         child: FlatButton(
           onPressed: () {
-            String response = new Login().login(
+            Future<String> response = new Login().login(
                 InputPhoneState.email, PasswordInputState.password);
-            if (response == 'success') {
+            if (response.toString() == 'success') {
               //Pending code
 
               Navigator.push(

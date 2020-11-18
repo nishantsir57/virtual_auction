@@ -41,7 +41,7 @@ class _ButtonNewUserState extends State<ButtonNewUser> {
             color: Colors.white, borderRadius: BorderRadius.circular(30)),
         child: FlatButton(
           onPressed: (){
-            String response=new Signup().signup(InputPhoneState.email, PasswordInputState.password);
+            Future<String> response=new Signup().signup(InputPhoneState.email, PasswordInputState.password);
             if(response == 'success')
               {
                 //pending code
