@@ -13,7 +13,7 @@ class InputPhone extends StatefulWidget {
 }
 
 class InputPhoneState extends State<InputPhone> {
-  static String email;
+  static String phone;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,7 +22,7 @@ class InputPhoneState extends State<InputPhone> {
         height: 60,
         width: MediaQuery.of(context).size.width,
         child: TextField(
-          onChanged: (value) => email=value,
+          onChanged: (value) => phone=value,
           style: TextStyle(
             color: Colors.white,
           ),

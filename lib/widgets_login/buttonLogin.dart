@@ -15,10 +15,10 @@ Widget build(BuildContext context) {
 }
 class LoginButton extends StatefulWidget{
   @override
-    _LoginButtonState createState()=>_LoginButtonState();
+    LoginButtonState createState()=>LoginButtonState();
   }
 
-class _LoginButtonState extends State<LoginButton>{
+class LoginButtonState extends State<LoginButton>{
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,7 +45,7 @@ class _LoginButtonState extends State<LoginButton>{
         child: FlatButton(
           onPressed: () {
             Future<String> response = new Login().login(
-                InputPhoneState.email, PasswordInputState.password);
+                InputPhoneState.phone, PasswordInputState.password);
             if (response.toString() == 'success') {
               //Pending code
 

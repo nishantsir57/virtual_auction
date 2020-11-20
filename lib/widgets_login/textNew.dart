@@ -10,10 +10,10 @@ class TextNewWidget extends StatelessWidget {
 }
 class TextNew extends StatefulWidget {
   @override
-  _TextNewState createState() => _TextNewState();
+  TextNewState createState() => TextNewState();
 }
 
-class _TextNewState extends State<TextNew> {
+class TextNewState extends State<TextNew> {
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -10,10 +10,10 @@ class VerticalTextWidget extends StatelessWidget {
 }
 class VerticalText extends StatefulWidget {
   @override
-  _VerticalTextState createState() => _VerticalTextState();
+  VerticalTextState createState() => VerticalTextState();
 }
 
-class _VerticalTextState extends State<VerticalText> {
+class VerticalTextState extends State<VerticalText> {
   @override
   Widget build(BuildContext context) {
     return Padding(

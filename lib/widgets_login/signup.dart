@@ -10,10 +10,10 @@ class SingUpWidget extends StatelessWidget {
 }
 class SingUp extends StatefulWidget {
   @override
-  _SingUpState createState() => _SingUpState();
+  SingUpState createState() => SingUpState();
 }
 
-class _SingUpState extends State<SingUp> {
+class SingUpState extends State<SingUp> {
   @override
   Widget build(BuildContext context) {
     return Padding(
