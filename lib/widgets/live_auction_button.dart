@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +21,17 @@ class LiveAuction extends StatefulWidget{
 class LiveAuctionState extends State<LiveAuction> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return new Card(
+      child: Image.network(
+        'https://placeimg.com/640/480/any',
+        fit: BoxFit.fill,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      elevation: 5,
+      margin: EdgeInsets.all(10),
+    );
   }
 }
+

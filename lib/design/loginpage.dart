@@ -1,3 +1,4 @@
+import 'package:virtual_auction/widgets/live_auction_button.dart';
 import 'package:virtual_auction/widgets_login/buttonLogin.dart';
 import 'package:virtual_auction/widgets_login/first.dart';
 import 'package:virtual_auction/widgets_login/inputPhone.dart';
@@ -30,10 +31,13 @@ class _LoginPageState extends State<LoginPage>{
             Column(
               children: <Widget>[
                 Row(children: <Widget>[
+
                   VerticalText(),
                   TextLogin(),
                 ]),
+                LiveAuction(),
                 NewEmail(),
+
                 PasswordInput(),
                 LoginButton(),
                 FirstTime(),
