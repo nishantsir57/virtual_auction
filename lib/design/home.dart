@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:virtual_auction/widgets/live_auction_button.dart';
+import 'package:virtual_auction/widgets/CardWidget.dart';
 
 class Home extends StatefulWidget{
   @override
