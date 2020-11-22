@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:virtual_auction/design/home.dart';
+import 'package:virtual_auction/widgets_login/CardView.dart';
 import 'design/loginpage.dart';
 
 void main() async {
@@ -13,9 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       title: 'Virtual Auction',
-      home: LoginPage(),
+      home: new Home(),
     );
   }
 }
