@@ -50,7 +50,6 @@ class CardViewState extends State<Card1> {
                 Padding(
                   padding: const EdgeInsets.all(40.0),
                   child: Container(
-
                       child: Image.network(pathofImage,
                         fit: BoxFit.fitWidth,
                         alignment: Alignment.topCenter,),

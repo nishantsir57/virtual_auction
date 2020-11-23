@@ -1,26 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/rsam1/AndroidStudioProjects/virtual_auction/lib/widgets/CardView.dart';
+import 'package:virtual_auction/widgets/bidsListView.dart';
 
-class Home extends StatefulWidget{
+class ActiveBids extends StatefulWidget{
   @override
-  _HomeState createState()=> _HomeState();
+  ActiveBidsState createState()=> ActiveBidsState();
 }
 
-class _HomeState extends State<Home>{
+class ActiveBidsState extends State<ActiveBids> {
   @override
   Widget build(BuildContext context) {
     return getDetails();
-
   }
-  Widget getDetails()
-  {
+
+  Widget getDetails() {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Colors.cyan,
           title: Center(
-              child: Text("Virtual Auction",
+              child: Text("Active Bids",
               style: TextStyle(
                 fontSize: 20,
                   letterSpacing: 3,
@@ -29,7 +28,7 @@ class _HomeState extends State<Home>{
               ),)
           ),
         ),
-        body: new CardView(),
+        body: new BidsListView(),
       ),
     );
   }
