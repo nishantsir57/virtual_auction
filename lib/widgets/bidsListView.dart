@@ -1,5 +1,4 @@
-
-import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,7 @@ class BidsListView extends StatefulWidget{
 class BidsListViewState extends State<BidsListView> {
   @override
   Widget build(BuildContext context) {
-    return CardList("Name Name Name Na","Start Bid Price: 5000000","Current Bid Price: 0000000","Start Time:12.12 AM"," End Time:88:88PM","Date of Bid:25/09/2020", "https://pngimage.net/wp-content/uploads/2018/06/hourglass-flat-icon-png.png");
+    return CardList("Name Name Name Na","Start Bid Price: 5000000","Current Bid Price: 0000000","Start Time:12.12 AM"," End Time:88:88PM","Date of Bid:25/09/2020", "https://i.ebayimg.com/images/g/iMIAAOSwuOZdvszh/s-l800.jpg");
   }
 }
 
@@ -29,11 +28,8 @@ BoxDecoration myBoxDecoration() {
   return BoxDecoration(
     color: Colors.white30,
     border: Border.all(
-      color: Colors.lightBlueAccent,
+      color: Colors.white30,
       width: 1.2,
-
-      //
-      //                <--- border width here
     ),
   );
 }
@@ -44,7 +40,7 @@ Widget CardList(String nameofbid,String startbidprice,String currentbidprice,Str
     padding: const EdgeInsets.all(3),
     itemBuilder: (context, i) {
       return Container(
-          height: MediaQuery.of(context).size.height / 3.5,
+          height: MediaQuery.of(context).size.height/2.2,
           child: Container(
             decoration: myBoxDecoration(),
             height: 200,
@@ -56,16 +52,16 @@ Widget CardList(String nameofbid,String startbidprice,String currentbidprice,Str
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.0),
                 ),
-                color: Colors.white24,
+                color: Colors.cyan,
                 elevation: 10,
-                child: Row(
+                child: Column(
                   children: <Widget>[
                     Container(
-                      alignment: Alignment.centerLeft,
-                      margin: new EdgeInsets.all(2.0),
-                      height: 140,
+                      alignment: Alignment.center,
+                      margin: new EdgeInsets.only(top: 10),
+                      height: 160,
                       child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(2.0),
                         child: Container(
                           child: Image.network(pathofImage,
                             fit: BoxFit.fitWidth,
@@ -74,86 +70,41 @@ Widget CardList(String nameofbid,String startbidprice,String currentbidprice,Str
                       ),
                     ),
                     Column(
+                      mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          margin: new EdgeInsets.only(right: 10.0, top: 18.0,left: 0.1),
+                          margin: new EdgeInsets.all(1.0),
                           child:
                           Padding(
                             padding: const EdgeInsets.all(5.0),
-                            child: Text(nameofbid,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
-                                  color: Colors.black
-                              ),
-                            ),
+                            child: Nameofbid(nameofbid)
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Text(startbidprice,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14,
-                                letterSpacing: 0.2,
-                                wordSpacing: 1.5,
-                                color: Colors.black
-                            ),
-                          ),
+                          padding: const EdgeInsets.all(2.0),
+                          child: dataofbid(startbidprice)
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Text(currentbidprice,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14,
-                                letterSpacing: 0.2,
-                                wordSpacing: 1.5,
-                                color: Colors.black
+                          padding: const EdgeInsets.all(2.0),
+                          child: dataofbid(currentbidprice)
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: dataofbid(starttime)
                             ),
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: dataofbid(endtime)
+                            ),
+                          ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Text(starttime,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14,
-                                letterSpacing: 0.2,
-                                wordSpacing: 1.5,
-                                color: Colors.black
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Text(endtime,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14,
-                                letterSpacing: 0.2,
-                                wordSpacing: 1.5,
-                                color: Colors.black
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Text(dateofbid,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14,
-                                letterSpacing: 0.2,
-                                wordSpacing: 1.5,
-                                color: Colors.black
-                            ),
-                          ),
+                          padding: const EdgeInsets.all(2.0),
+                          child: dataofbid(dateofbid)
                         )
                       ],
                     ),
@@ -164,6 +115,40 @@ Widget CardList(String nameofbid,String startbidprice,String currentbidprice,Str
           )
       );
     }
+  );
+}
+
+Widget dataofbid(String otherdata){
+  return Padding(
+    padding: const EdgeInsets.all(3.0),
+    child: Container(
+      child: Text(otherdata,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            fontWeight: FontWeight.normal,
+            fontSize: 14,
+            letterSpacing: 0.2,
+            wordSpacing: 1.5,
+            color: Colors.black
+        ),
+      ),
+    ),
+  );
+}
+
+Widget Nameofbid(String namedata){
+  return Padding(
+    padding: const EdgeInsets.all(3.0),
+    child: Text(namedata,
+      textAlign: TextAlign.left,
+      style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+          letterSpacing: 0.2,
+          wordSpacing: 1.5,
+          color: Colors.black
+      ),
+    ),
   );
 }
 
