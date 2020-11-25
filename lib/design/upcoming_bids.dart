@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/widgets/bidsListView.dart';
 
-class ActiveBids extends StatefulWidget{
+class UpcomingBids extends StatefulWidget{
   @override
-  ActiveBidsState createState()=> ActiveBidsState();
+  UpcomingBidsState createState()=> UpcomingBidsState();
 }
 
-class ActiveBidsState extends State<ActiveBids> {
+class UpcomingBidsState extends State<UpcomingBids> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,12 +20,12 @@ class ActiveBidsState extends State<ActiveBids> {
           title: Container(
             decoration: myBoxDecoration(),
             child: Center(
-                child: Text("ACTIVE BIDS",
+                child: Text("UPCOMING BIDS",
                   style: TextStyle(
                       fontSize: 20,
                       letterSpacing: 3,
                       wordSpacing: 6,
-                      color: Colors.green
+                      color: Colors.amber
                   ),
                 )
             ),

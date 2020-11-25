@@ -2,8 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+ String a;
 class BidsList extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,6 +14,22 @@ class BidsList extends StatelessWidget{
 }
 
 class BidsListView extends StatefulWidget{
+  // static String bidname;
+  // static String startprice;
+  // static String currentprice;
+  // static String timeStart;
+  // static String timeEnd;
+  // static String bidDate;
+  // static String bidPictureURL;
+  // BidsListView(String nameofbid1,String startbidprice1,String currentbidprice1,String starttime1,String endtime1,String dateofbid1, String pathofImage1){
+  //   bidname=nameofbid1;
+  //   startprice=startbidprice1;
+  //   currentprice=currentbidprice1;
+  //   timeStart=starttime1;
+  //   timeEnd=endtime1;
+  //   bidDate=dateofbid1;
+  //   bidPictureURL=pathofImage1;
+  // }
   @override
   BidsListViewState createState()=> BidsListViewState();
 }
@@ -20,100 +37,31 @@ class BidsListView extends StatefulWidget{
 class BidsListViewState extends State<BidsListView> {
   @override
   Widget build(BuildContext context) {
-    return CardList("Name Name Name Na","Start Bid Price: 5000000","Current Bid Price: 0000000","Start Time:12.12 AM"," End Time:88:88PM","Date of Bid:25/09/2020", "https://i.ebayimg.com/images/g/iMIAAOSwuOZdvszh/s-l800.jpg");
+    return CardList("Mona Lisa","Starting Bid Price: 287B","Current Bid Price: 289B","Start Time: 10:00AM","End Timw:11:00AM","Date of Bidding: 01-Dec-2020","https://static.boredpanda.com/blog/wp-content/uploads/2020/08/digital-art-mona-lisa-versions-photoshop-designcrowd-fb-png__700.jpg");
   }
 }
 
 BoxDecoration myBoxDecoration() {
   return BoxDecoration(
-    color: Colors.white30,
+    color: Colors.white,
     border: Border.all(
-      color: Colors.white30,
+      color: Colors.black,
       width: 1.2,
     ),
   );
 }
 
-Widget CardList(String nameofbid,String startbidprice,String currentbidprice,String starttime,String endtime,String dateofbid, String pathofImage)
+Widget CardList(String nameofbid1,String startbidprice1,String currentbidprice1,String starttime1,String endtime1,String dateofbid1, String pathofImage1)
 {
+  // final active_bid_color = Colors.green;
+  // final upcoming_bid_color=Colors.limeAccent;
+  // final past_bid_color=Colors.redAccent;
   return ListView.builder(
     padding: const EdgeInsets.all(3),
     itemBuilder: (context, i) {
       return Container(
-          height: MediaQuery.of(context).size.height/2.2,
-          child: Container(
-            decoration: myBoxDecoration(),
-            height: 200,
-            child: Padding(
-              padding: const EdgeInsets.all(3.0),
-              child: Card(
-                semanticContainer: true,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-                color: Colors.cyan,
-                elevation: 10,
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment.center,
-                      margin: new EdgeInsets.only(top: 10),
-                      height: 160,
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          child: Image.network(pathofImage,
-                            fit: BoxFit.fitWidth,
-                            alignment: Alignment.topCenter,),
-                        ),
-                      ),
-                    ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          margin: new EdgeInsets.all(1.0),
-                          child:
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Nameofbid(nameofbid)
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: dataofbid(startbidprice)
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: dataofbid(currentbidprice)
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: dataofbid(starttime)
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: dataofbid(endtime)
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: dataofbid(dateofbid)
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          )
-      );
+        height: MediaQuery.of(context).size.height/2.3,
+          child: onlyCard(nameofbid1, startbidprice1, currentbidprice1, starttime1, endtime1, dateofbid1, pathofImage1));
     }
   );
 }
@@ -147,6 +95,83 @@ Widget Nameofbid(String namedata){
           letterSpacing: 0.2,
           wordSpacing: 1.5,
           color: Colors.black
+      ),
+    ),
+  );
+}
+
+
+
+Widget onlyCard(String nameofbid,String startbidprice,String currentbidprice,String starttime,String endtime,String dateofbid, String pathofImage){
+
+  return Container(
+    color: Colors.white10,
+    // decoration: BoxDecoration(
+    //   color: Colors.black
+    // ),
+    height: 200,
+    child: Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Card(
+        semanticContainer: true,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
+        color: Colors.deepOrange,
+        elevation: 10,
+        child: Column(
+          children: <Widget>[
+            Container(
+              alignment: Alignment.center,
+              margin: new EdgeInsets.only(top: 10),
+              height: 160,
+              child: Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Container(
+                  child: Image.network(pathofImage,
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.topCenter,),
+                ),
+              ),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Nameofbid(nameofbid)
+                ),
+                Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: dataofbid(startbidprice)
+                ),
+                Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: dataofbid(currentbidprice)
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: dataofbid(starttime)
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: dataofbid(endtime)
+                    ),
+                  ],
+                ),
+                Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: dataofbid(dateofbid)
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     ),
   );
