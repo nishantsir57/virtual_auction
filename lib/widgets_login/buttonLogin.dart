@@ -55,9 +55,7 @@ class LoginButtonState extends State<LoginButton>{
               );
             }
             else
-              {
-
-              }
+              {              }
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

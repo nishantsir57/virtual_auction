@@ -70,7 +70,6 @@ class CardViewState extends State<Card1> {
                 ),
               ],
             ),
-
           ),
         ),
       ),

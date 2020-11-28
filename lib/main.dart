@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:virtual_auction/design/ProfilePage.dart';
 import 'package:virtual_auction/design/avtive_bids_home.dart';
 import 'package:virtual_auction/design/home.dart';
+import 'package:virtual_auction/design/newuser_page.dart';
 import 'package:virtual_auction/design/past_bids.dart';
 import 'package:virtual_auction/design/upcoming_bids.dart';
-import 'package:virtual_auction/widgets/biddingPage.dart';
-import 'package:virtual_auction/widgets/bidsListView.dart';
-import 'file:///C:/Users/rsam1/AndroidStudioProjects/virtual_auction/lib/widgets/CardView.dart';
+import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
+import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
+import 'package:virtual_auction/widgets/ListView_Bids.dart';
+import 'design/BiddingPage.dart';
 import 'design/loginpage.dart';
 
 void main() async {
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
       title: 'Virtual Auction',
-      home: new PastBids(),
+      home: new BiddigPage(),
     );
   }
 }

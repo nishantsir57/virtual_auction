@@ -1,37 +1,39 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
+import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
-class ActiveBids1 extends StatefulWidget{
+class BiddigPage extends StatefulWidget{
   @override
-  ActiveBids1State createState()=> ActiveBids1State();
+  BiddigPageState createState()=> BiddigPageState();
 }
 
-class ActiveBids1State extends State<ActiveBids1> {
+class BiddigPageState extends State<BiddigPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white10,
+          backgroundColor: Colors.red,
           automaticallyImplyLeading: true,
           bottomOpacity: 100,
           elevation: 0,
           title: Container(
-            decoration: myBoxDecoration(),
+            // decoration: myBoxDecoration(),
             child: Center(
-                child: Text("ACTIVE BIDS",
+                child: Text(BidsListViewState.nameofbid,
                   style: TextStyle(
                       fontSize: 20,
                       letterSpacing: 3,
                       wordSpacing: 6,
-                      color: Colors.green
+                      color: Colors.black
                   ),
                 )
             ),
           ),
         ),
-        body: new BidsListView(),
+        body: new DescriptionOfBid(),
       ),
     );
   }

@@ -1,68 +1,37 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
- String a;
-class BidsList extends StatelessWidget{
+
+import 'ListView_Bids.dart';
+
+class BidsDetailCardView extends StatefulWidget{
+  @override
+  BidsDetailCardViewState createState()=> BidsDetailCardViewState();
+}
+
+class BidsDetailCardViewState extends State<BidsDetailCardView> {
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: BidsListView(),
+        height: MediaQuery.of(context).size.height/2.15,
+      child: onlyCard(
+          BidsListViewState.nameofbid,
+          BidsListViewState.startPrice,
+          BidsListViewState.currentPrice,
+          BidsListViewState.startTime,
+          BidsListViewState.endTime,
+          BidsListViewState.dateOfBid,
+          BidsListViewState.bidImageURL),
     );
-  }
-}
-
-class BidsListView extends StatefulWidget{
-  // static String bidname;
-  // static String startprice;
-  // static String currentprice;
-  // static String timeStart;
-  // static String timeEnd;
-  // static String bidDate;
-  // static String bidPictureURL;
-  // BidsListView(String nameofbid1,String startbidprice1,String currentbidprice1,String starttime1,String endtime1,String dateofbid1, String pathofImage1){
-  //   bidname=nameofbid1;
-  //   startprice=startbidprice1;
-  //   currentprice=currentbidprice1;
-  //   timeStart=starttime1;
-  //   timeEnd=endtime1;
-  //   bidDate=dateofbid1;
-  //   bidPictureURL=pathofImage1;
-  // }
-  @override
-  BidsListViewState createState()=> BidsListViewState();
-}
-
-class BidsListViewState extends State<BidsListView> {
-  @override
-  Widget build(BuildContext context) {
-    return CardList("Mona Lisa","Starting Bid Price: 287B","Current Bid Price: 289B","Start Time: 10:00AM","End Timw:11:00AM","Date of Bidding: 01-Dec-2020","https://static.boredpanda.com/blog/wp-content/uploads/2020/08/digital-art-mona-lisa-versions-photoshop-designcrowd-fb-png__700.jpg");
   }
 }
 
 BoxDecoration myBoxDecoration() {
   return BoxDecoration(
-    color: Colors.white,
     border: Border.all(
       color: Colors.black,
       width: 1.2,
     ),
-  );
-}
-
-Widget CardList(String nameofbid1,String startbidprice1,String currentbidprice1,String starttime1,String endtime1,String dateofbid1, String pathofImage1)
-{
-  // final active_bid_color = Colors.green;
-  // final upcoming_bid_color=Colors.limeAccent;
-  // final past_bid_color=Colors.redAccent;
-  return ListView.builder(
-    padding: const EdgeInsets.all(3),
-    itemBuilder: (context, i) {
-      return Container(
-        height: MediaQuery.of(context).size.height/2.3,
-          child: onlyCard(nameofbid1, startbidprice1, currentbidprice1, starttime1, endtime1, dateofbid1, pathofImage1));
-    }
   );
 }
 
@@ -85,16 +54,19 @@ Widget dataofbid(String otherdata){
 }
 
 Widget Nameofbid(String namedata){
-  return Padding(
-    padding: const EdgeInsets.all(3.0),
-    child: Text(namedata,
-      textAlign: TextAlign.left,
-      style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-          letterSpacing: 0.2,
-          wordSpacing: 1.5,
-          color: Colors.black
+  return Container(
+    decoration: myBoxDecoration(),
+    child: Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Text(namedata,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            letterSpacing: 0.2,
+            wordSpacing: 1.5,
+            color: Colors.black
+        ),
       ),
     ),
   );
@@ -140,15 +112,15 @@ Widget onlyCard(String nameofbid,String startbidprice,String currentbidprice,Str
               children: [
                 Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: Nameofbid(nameofbid)
+                    child: Nameofbid("Name: "+nameofbid)
                 ),
                 Padding(
                     padding: const EdgeInsets.all(2.0),
-                    child: dataofbid(startbidprice)
+                    child: dataofbid("Start Bid Price: "+startbidprice)
                 ),
                 Padding(
                     padding: const EdgeInsets.all(2.0),
-                    child: dataofbid(currentbidprice)
+                    child: dataofbid("Current Bid Price: "+currentbidprice)
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
@@ -156,17 +128,17 @@ Widget onlyCard(String nameofbid,String startbidprice,String currentbidprice,Str
                   children: [
                     Padding(
                         padding: const EdgeInsets.all(2.0),
-                        child: dataofbid(starttime)
+                        child: dataofbid("Start Time: "+starttime)
                     ),
                     Padding(
                         padding: const EdgeInsets.all(2.0),
-                        child: dataofbid(endtime)
+                        child: dataofbid("End Time: "+endtime)
                     ),
                   ],
                 ),
                 Padding(
                     padding: const EdgeInsets.all(2.0),
-                    child: dataofbid(dateofbid)
+                    child: dataofbid("Date of Bid: "+dateofbid)
                 )
               ],
             ),
@@ -176,4 +148,3 @@ Widget onlyCard(String nameofbid,String startbidprice,String currentbidprice,Str
     ),
   );
 }
-
