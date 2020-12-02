@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'file:///C:/Users/rsam1/AndroidStudioProjects/virtual_auction/lib/widgets/Home_CardView.dart';
+import 'package:virtual_auction/design/ProfilePage.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -18,15 +19,15 @@ class _HomeState extends State<Home>{
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: FlatButton(
-            onPressed: () {},
-            child: Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: Icon(
-                Icons.account_circle,
-                color: Colors.black,
-              ),
-            ),
+          leading: IconButton(
+            color: Colors.black,
+            icon: Icon(Icons.account_circle),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            },
           ),
           backgroundColor: Colors.redAccent,
           title: Center(
@@ -44,7 +45,12 @@ class _HomeState extends State<Home>{
             IconButton(
               color: Colors.black,
               icon: Icon(Icons.live_help),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
             ),
           ],
         ),

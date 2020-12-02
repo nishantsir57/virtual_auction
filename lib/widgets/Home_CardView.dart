@@ -33,6 +33,7 @@ class CardViewState extends State<Card1> {
   Widget getCard(String value, String pathofImage)
   {
     return Container(
+
       height: MediaQuery.of(context).size.height/3.5,
       child: Padding(
         padding: const EdgeInsets.all(3.0),
