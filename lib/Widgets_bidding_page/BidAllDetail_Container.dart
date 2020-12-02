@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/design/avtive_bids_home.dart';
 
 class ItemDesc extends StatelessWidget{
   @override
@@ -17,8 +18,15 @@ class ItemDescViewState extends State<ItemDescView>{
   static String itemDescription;
   @override
   Widget build(BuildContext context) {
-   return Container(
-     child: itemDescriptionWidget(itemDescription="Image description: a detailed explanation of an image that provides textual access to visual content; most often used for digital graphics online and in digital files; can be used as alt text in coding to provide access to more complete information."),
+   return Card(
+     elevation: 1,
+     child: Container(
+       decoration: BoxDecoration(
+         border: Border.all(color: Colors.black26),
+         shape: BoxShape.rectangle
+       ),
+       child: itemDescriptionWidget(itemDescription="Image description: a detailed explanation of an image that provides textual access to visual content; most often used for digital graphics online and in digital files; can be used as alt text in coding to provide access to more complete information."),
+     ),
    );
   }
 }

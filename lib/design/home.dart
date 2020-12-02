@@ -18,6 +18,16 @@ class _HomeState extends State<Home>{
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: FlatButton(
+            onPressed: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(1.0),
+              child: Icon(
+                Icons.account_circle,
+                color: Colors.black,
+              ),
+            ),
+          ),
           backgroundColor: Colors.redAccent,
           title: Center(
               child: Text("Virtual Auction",
@@ -26,8 +36,17 @@ class _HomeState extends State<Home>{
                   letterSpacing: 3,
                   wordSpacing: 6,
                   color: Colors.black
-              ),)
+              ),
+                textAlign: TextAlign.left,
+              )
           ),
+          actions: [
+            IconButton(
+              color: Colors.black,
+              icon: Icon(Icons.live_help),
+              onPressed: () {},
+            ),
+          ],
         ),
         body: new CardView(),
       ),

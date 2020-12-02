@@ -22,6 +22,7 @@ class BidAmountWidgetState extends State<BidAmountWidget> {
       margin: new EdgeInsets.all(1.0),
       decoration: myBoxDecoration(),
       child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Container(
             // decoration: myBoxDecoration(),

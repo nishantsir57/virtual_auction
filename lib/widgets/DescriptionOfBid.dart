@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/Widgets_bidding_page/AddFundsButton.dart';
 import 'package:virtual_auction/Widgets_bidding_page/BidAllDetail_Container.dart';
 import 'package:virtual_auction/Widgets_bidding_page/BidAmount_TextField.dart';
 import 'package:virtual_auction/Widgets_bidding_page/CurrentPrice_Wid.dart';
+import 'package:virtual_auction/Widgets_bidding_page/Date_Time.dart';
 import 'package:virtual_auction/Widgets_bidding_page/PlaceBid_Button.dart';
 import 'ListView_Bids.dart';
 
@@ -37,24 +39,6 @@ BoxDecoration myBoxDecoration() {
   );
 }
 
-Widget biddingDATA(String otherdata){
-  return Padding(
-    padding: const EdgeInsets.all(3.0),
-    child: Container(
-      child: Text(otherdata,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontWeight: FontWeight.normal,
-            fontSize: 14,
-            letterSpacing: 0.2,
-            wordSpacing: 1.5,
-            color: Colors.black
-        ),
-      ),
-    ),
-  );
-}
-
 Widget descriptionCard(){
   return Container(
     color: Colors.white,
@@ -64,11 +48,11 @@ Widget descriptionCard(){
         children: <Widget>[
           Container(
             alignment: Alignment.topCenter,
-            decoration: myBoxDecoration(),
+            // decoration: myBoxDecoration(),
             // margin: new EdgeInsets.only(top: 2),
-            height: 200,
+            height: 220,
             child: Padding(
-              padding: const EdgeInsets.all(2.0),
+              padding: const EdgeInsets.all(1.0),
               child: Container(
                 decoration: myBoxDecoration(),
                 child: Image.network(BidsListViewState.bidImageURL,
@@ -94,8 +78,16 @@ Widget descriptionCard(){
             ),
           ),
           Container(
+              margin: new EdgeInsets.only(top: 2),
+              child: DateTime()
+          ),
+          Container(
             margin: new EdgeInsets.only(top: 2),
               child: BidAmount()
+          ),
+          Container(
+              margin: new EdgeInsets.only(top: 2),
+              child: AddFunds()
           ),
           Container(
               margin: new EdgeInsets.only(top: 2),
@@ -106,3 +98,4 @@ Widget descriptionCard(){
     ),
   );
 }
+

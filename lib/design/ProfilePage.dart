@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/Widgets_bidding_page/AddFundsButton.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 import 'package:virtual_auction/widgets_login/inputPhone.dart';
 import 'package:virtual_auction/widgets_login/newName.dart';
@@ -36,14 +37,23 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
           ),
         ),
         body: new Container(
+          alignment: Alignment.centerLeft,
           decoration: mBoxDecoration(),
           child: ListView(
               children: <Widget>[
                 profilePicture(BidsListViewState.bidImageURL),
-                dataOfPerson("Name: "),
-                dataOfPerson("Email: "),
-                dataOfPerson("Phone: "),
-                dataOfPerson("Address: "),
+                dataOfPerson("Name: Take Name data from Name Variable"),
+                dataOfPerson("Email: from NewEmail widget"),
+                dataOfPerson("Phone: from inputPhone Widget"),
+                Container(
+                    height: 55,
+                    child: Card(
+                        child: accountBalance("Account Balance: 101")
+                    )
+                ),
+                Container(
+                  margin: EdgeInsets.all(3.0),
+                    child: addfunds())
                 // dataOfPerson("personData")
               ]
           ),
@@ -56,7 +66,7 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
 
 Widget profilePicture(String ppPath){
   return Container(
-    alignment: Alignment.topCenter,
+    alignment: Alignment.center,
     decoration: mBoxDecoration(),
     // margin: new EdgeInsets.only(top: 2),
     height: 200,
@@ -74,17 +84,21 @@ Widget profilePicture(String ppPath){
 
 Widget dataOfPerson(String personData){
   return Container(
+    height: 55,
     child: Padding(
-      padding: const EdgeInsets.all(3.0),
-      child: Text(
-        personData,
-        style: TextStyle(
-          color: Colors.black,
-          letterSpacing: 2,
-          wordSpacing: 2,
-          fontSize: 20,
+      padding: const EdgeInsets.all(1.0),
+      child: Card(
+
+        child: Text(
+          personData,
+          style: TextStyle(
+            color: Colors.black,
+            letterSpacing: 2,
+            wordSpacing: 2,
+            fontSize: 16,
+          ),
+          textAlign: TextAlign.left,
         ),
-        textAlign: TextAlign.left,
       ),
     ),
   );

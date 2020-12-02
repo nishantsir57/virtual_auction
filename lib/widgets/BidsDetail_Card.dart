@@ -78,9 +78,6 @@ Widget onlyCard(String nameofbid,String startbidprice,String currentbidprice,Str
 
   return Container(
     color: Colors.white10,
-    // decoration: BoxDecoration(
-    //   color: Colors.black
-    // ),
     height: 200,
     child: Padding(
       padding: const EdgeInsets.all(3.0),
@@ -90,7 +87,7 @@ Widget onlyCard(String nameofbid,String startbidprice,String currentbidprice,Str
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18.0),
         ),
-        color: Colors.deepOrange,
+        color: Colors.greenAccent,
         elevation: 10,
         child: Column(
           children: <Widget>[
