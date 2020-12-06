@@ -13,7 +13,7 @@ class UserOld extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 30,right: 30),
+      padding: const EdgeInsets.only(top: 20, left: 30,right: 30),
       child: Container(
         alignment: Alignment.topRight,
         //color: Colors.red,
@@ -24,11 +24,11 @@ class UserOld extends StatelessWidget {
               'Have we met before? Yes?',
               style: TextStyle(
                 fontSize: 12,
-                color: Colors.white70,
+                color: Colors.black,
               ),
             ),
             FlatButton(
-              padding: EdgeInsets.all(0),
+              padding: EdgeInsets.all(1.0),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginPage()));
@@ -37,7 +37,7 @@ class UserOld extends StatelessWidget {
                 'Sign in',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 textAlign: TextAlign.right,
               ),

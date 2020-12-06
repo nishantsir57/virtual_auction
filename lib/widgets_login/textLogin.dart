@@ -17,7 +17,7 @@ class TextLoginState extends State<TextLogin> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30.0, left: 10.0),
+      padding: const EdgeInsets.only(top: 5.0, left: 10.0),
       child: Container(
         //color: Colors.green,
         height: 200,

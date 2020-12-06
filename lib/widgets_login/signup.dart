@@ -17,7 +17,7 @@ class SingUpState extends State<SingUp> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 60, left: 10),
+      padding: const EdgeInsets.only(top: 20, left: 10,right: 5),
       child: RotatedBox(
           quarterTurns: -1,
           child: Text(

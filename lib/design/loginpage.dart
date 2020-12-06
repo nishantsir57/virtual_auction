@@ -16,30 +16,32 @@ class LoginPage extends  StatefulWidget {
 class _LoginPageState extends State<LoginPage>{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Colors.redAccent, Colors.lightBlueAccent]),
-          color: Color(0xff5c0632),
-        ),
-        child: ListView(
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Row(children: <Widget>[
-                  VerticalText(),
-                  TextLogin(),
-                ]),
-                NewEmail(),
-                PasswordInput(),
-                LoginButton(),
-                FirstTime(),
-              ],
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.redAccent, Colors.cyan]),
+            color: Color(0xff5c0632),
+          ),
+          child: ListView(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Row(children: <Widget>[
+                    VerticalText(),
+                    TextLogin(),
+                  ]),
+                  NewEmail(),
+                  PasswordInput(),
+                  LoginButton(),
+                  FirstTime(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

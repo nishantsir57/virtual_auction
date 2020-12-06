@@ -1,3 +1,4 @@
+import 'package:virtual_auction/widgets_login/adhaar.dart';
 import 'package:virtual_auction/widgets_login/buttonnewuser.dart';
 import 'package:virtual_auction/widgets_login/inputPhone.dart';
 import 'package:flutter/material.dart';
@@ -16,33 +17,36 @@ class NewUser extends StatefulWidget {
 class _NewUserState extends State<NewUser> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Colors.redAccent, Colors.lightBlueAccent]),
-        ),
-        child: ListView(
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    SingUp(),
-                    TextNew(),
-                  ],
-                ),
-                NewName(),
-                InputPhone(),
-                NewEmail(),
-                PasswordInput(),
-                ButtonNewUser(),
-                UserOld(),
-              ],
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.redAccent, Colors.cyan]),
+          ),
+          child: ListView(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      SingUp(),
+                      TextNew(),
+                    ],
+                  ),
+                  NewName(),
+                  InputPhone(),
+                  NewEmail(),
+                  Adhaar(),
+                  PasswordInput(),
+                  ButtonNewUser(),
+                  UserOld(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

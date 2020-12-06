@@ -37,7 +37,7 @@ class BidsListViewState extends State<BidsListView> {
                     startTime="10:00AM",
                     endTime="11:00AM",
                     dateOfBid="01-Dec-2020",
-                    bidImageURL="https://media.gq.com/photos/5db741a99ea117000848d509/3:2/w_1685,h_1123,c_limit/Trend-Alert-Leonardo-da-Vinci-GQ-2019-102819.jpg"
+                    bidImageURL="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
               ),
             );
           }

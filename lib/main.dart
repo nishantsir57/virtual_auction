@@ -10,7 +10,21 @@ import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
 import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 import 'design/BiddingPage.dart';
+import 'design/ProfilePage.dart';
+import 'design/avtive_bids_home.dart';
+import 'design/avtive_bids_home.dart';
+import 'design/avtive_bids_home.dart';
+import 'design/home.dart';
+import 'design/home.dart';
+import 'design/home.dart';
 import 'design/loginpage.dart';
+import 'design/loginpage.dart';
+import 'design/newuser_page.dart';
+import 'design/newuser_page.dart';
+import 'design/upcoming_bids.dart';
+import 'design/upcoming_bids.dart';
+import 'development/Signup.dart';
+import 'development/Signup.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +40,7 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
       title: 'Virtual Auction',
-      home: new Home(),
+      home: new BiddigPage(),
     );
   }
 }

@@ -18,9 +18,9 @@ class NewNameState extends State<NewName> {
   static String name;
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 50, left: 50, right: 50),
+      padding: const EdgeInsets.only(top: 5, left: 50, right: 50),
       child: Container(
-        height: 60,
+        height: 55,
         width: MediaQuery.of(context).size.width,
         child: TextField(
           onChanged: (value) => name=value,
@@ -30,7 +30,6 @@ class NewNameState extends State<NewName> {
           decoration: InputDecoration(
            border: OutlineInputBorder(
               borderSide: BorderSide(
-              color: Colors.red,
               width: 0.1
               )
             ),

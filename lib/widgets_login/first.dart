@@ -19,7 +19,7 @@ class FirstTimeState extends State<FirstTime> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 30),
+      padding: const EdgeInsets.all(40),
       child: Container(
         alignment: Alignment.topRight,
         //color: Colors.red,
@@ -30,7 +30,7 @@ class FirstTimeState extends State<FirstTime> {
               'Your first time?',
               style: TextStyle(
                 fontSize: 12,
-                color: Colors.white70,
+                color: Colors.black,
               ),
             ),
             FlatButton(
@@ -43,9 +43,9 @@ class FirstTimeState extends State<FirstTime> {
                 'Sign up',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
-                textAlign: TextAlign.right,
+                textAlign: TextAlign.left,
               ),
             ),
           ],

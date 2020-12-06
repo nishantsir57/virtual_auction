@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/rsam1/AndroidStudioProjects/virtual_auction/lib/widgets/Home_CardView.dart';
 import 'package:virtual_auction/design/ProfilePage.dart';
+
+import '../widgets/Home_CardView.dart';
 
 class Home extends StatefulWidget{
   @override

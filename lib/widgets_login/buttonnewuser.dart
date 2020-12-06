@@ -3,6 +3,8 @@ import 'package:virtual_auction/development/Signup.dart';
 import 'package:virtual_auction/widgets_login/inputPhone.dart';
 import 'package:virtual_auction/widgets_login/password.dart';
 
+import '../design/home.dart';
+
 class ButtonNewUserWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class ButtonNewUserState extends State<ButtonNewUser> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40, right: 50, left: 200),
+      padding: const EdgeInsets.only(top: 40, left: 40, right: 40, bottom: 20),
       child: Container(
         alignment: Alignment.bottomRight,
         height: 50,
@@ -29,7 +31,7 @@ class ButtonNewUserState extends State<ButtonNewUser> {
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Colors.blue[100],
+                color: Colors.grey,
                 blurRadius: 10.0, // has the effect of softening the shadow
                 spreadRadius: 1.0, // has the effect of extending the shadow
                 offset: Offset(
@@ -38,21 +40,13 @@ class ButtonNewUserState extends State<ButtonNewUser> {
                 ),
               ),
             ],
-            color: Colors.white, borderRadius: BorderRadius.circular(30)),
+            color: Colors.black, borderRadius: BorderRadius.circular(30)),
         child: FlatButton(
           onPressed: (){
-            Future<String> response=new Signup().signup(InputPhoneState.phone, PasswordInputState.password, '', '', '', '');
-            if(response == 'success')
-              {
-                //pending code
-
-                Navigator.pop(context);
-              }
-            else
-              {
-
-              }
-
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home())
+            );
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -60,14 +54,17 @@ class ButtonNewUserState extends State<ButtonNewUser> {
               Text(
                 'SignUp',
                 style: TextStyle(
-                  color: Colors.lightBlueAccent,
+                  color: Colors.white,
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              Icon(
-                Icons.arrow_forward,
-                color: Colors.lightBlueAccent,
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Icon(
+                  Icons.app_settings_alt_outlined,
+                  color: Colors.white,
+                ),
               ),
             ],
           ),
