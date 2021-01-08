@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:virtual_auction/design/avtive_bids_home.dart';
+import 'package:virtual_auction/design/ActiveBids.dart';
 
 class AddFunds extends StatelessWidget {
   @override

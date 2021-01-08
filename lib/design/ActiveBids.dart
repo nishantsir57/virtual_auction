@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
-class ActiveBids1 extends StatefulWidget{
+class ActiveBids extends StatefulWidget{
   @override
   ActiveBids1State createState()=> ActiveBids1State();
 }
 
-class ActiveBids1State extends State<ActiveBids1> {
+class ActiveBids1State extends State<ActiveBids> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
