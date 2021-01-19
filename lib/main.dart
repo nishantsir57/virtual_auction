@@ -34,13 +34,41 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //
+  //     debugShowCheckedModeBanner: false,
+  //     title: 'Virtual Auction',
+  //     home: new Home(),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return FutureBuilder(
+      // Initialize FlutterFire:
+      future: _initialization,
+      builder: (context, snapshot) {
+        // Check for errors
+        if (snapshot.hasError) {
+          return new Text("Something went wrong");
+        }
 
-      debugShowCheckedModeBanner: false,
-      title: 'Virtual Auction',
-      home: new BiddigPage(),
+        // Once complete, show your application
+        if (snapshot.connectionState == ConnectionState.done) {
+           return MaterialApp(
+
+            debugShowCheckedModeBanner: false,
+            title: 'Virtual Auction',
+            home: new LoginPage(),
+          );
+        }
+
+        // Otherwise, show something whilst waiting for initialization to complete
+        return new Text("Loading...");
+      },
     );
   }
 }
