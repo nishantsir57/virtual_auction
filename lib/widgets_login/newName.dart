@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/Signup.dart';
 
 class NewNameWidget extends StatelessWidget {
   @override
@@ -15,7 +16,6 @@ class NewName extends StatefulWidget {
 
 class NewNameState extends State<NewName> {
   @override
-  static String name;
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 5, left: 50, right: 50),
@@ -23,7 +23,7 @@ class NewNameState extends State<NewName> {
         height: 55,
         width: MediaQuery.of(context).size.width,
         child: TextField(
-          onChanged: (value) => name=value,
+          onChanged: (value) => new Signup().name=value,
           style: TextStyle(
             color: Colors.white,
           ),
@@ -43,4 +43,5 @@ class NewNameState extends State<NewName> {
       ),
     );
   }
+
 }

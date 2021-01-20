@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/Signup.dart';
 
 class AdhaarWidget extends StatelessWidget {
   @override
@@ -14,6 +15,7 @@ class Adhaar extends StatefulWidget {
 }
 
 class AdhaarState extends State<Adhaar> {
+  String _adhar;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,6 +27,7 @@ class AdhaarState extends State<Adhaar> {
           style: TextStyle(
             color: Colors.white,
           ),
+          onChanged: (value) => new Signup().adhar=value,
           decoration: InputDecoration(
             border: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -42,4 +45,6 @@ class AdhaarState extends State<Adhaar> {
       ),
     );
   }
+
+  String get adhar => _adhar;
 }

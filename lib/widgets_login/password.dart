@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/Login.dart';
+import 'package:virtual_auction/development/Signup.dart';
 
 class PasswordInputWidget extends StatelessWidget {
   @override
@@ -14,7 +16,7 @@ class PasswordInput extends StatefulWidget {
 }
 
 class PasswordInputState extends State<PasswordInput> {
-  static String password;
+  static String _password;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +25,13 @@ class PasswordInputState extends State<PasswordInput> {
         height: 55,
         width: MediaQuery.of(context).size.width,
         child: TextField(
-          onChanged: (value) => password=value,
+          // controller: password1,
+          onChanged: (value) {
+
+            new Signup().password=value;
+            new Login().password=value;
+            print(value);
+          },
           style: TextStyle(
             color: Colors.white,
           ),
@@ -44,4 +52,6 @@ class PasswordInputState extends State<PasswordInput> {
       ),
     );
   }
+
+  String get password => _password;
 }

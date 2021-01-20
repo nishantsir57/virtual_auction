@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/Signup.dart';
 class InputPhoneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class InputPhone extends StatefulWidget {
 }
 
 class InputPhoneState extends State<InputPhone> {
-  static String phone;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,7 +23,7 @@ class InputPhoneState extends State<InputPhone> {
         height: 55,
         width: MediaQuery.of(context).size.width,
         child: TextField(
-          onChanged: (value) => phone=value,
+          onChanged: (value) => new Signup().phone=value,
           style: TextStyle(
             color: Colors.white,
           ),

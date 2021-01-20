@@ -6,19 +6,20 @@ import 'package:virtual_auction/widgets_login/inputPhone.dart';
 import 'package:virtual_auction/widgets_login/password.dart';
 
 class LoginButtonWidget extends StatelessWidget {
-@override
-Widget build(BuildContext context) {
-  return Container(
-    child: LoginButton(),
-  );
-}
-}
-class LoginButton extends StatefulWidget{
   @override
-    LoginButtonState createState()=>LoginButtonState();
+  Widget build(BuildContext context) {
+    return Container(
+      child: LoginButton(),
+    );
   }
+}
 
-class LoginButtonState extends State<LoginButton>{
+class LoginButton extends StatefulWidget {
+  @override
+  LoginButtonState createState() => LoginButtonState();
+}
+
+class LoginButtonState extends State<LoginButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,21 +46,15 @@ class LoginButtonState extends State<LoginButton>{
               borderRadius: BorderRadius.circular(30),
             ),
             child: FlatButton(
-              onPressed: (
-                  ) {
-                // Future<String> response = new Login().login(
-                //     InputPhoneState.phone, PasswordInputState.password);
-                // if (response.toString() == 'success') {
-                //   //Pending code
-
-                  Navigator.push(
+              onPressed: () async {
+                String status= await new Login().login();
+                if(status == 'success')
+                Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Home())
-                  );
-                //   );
-                // }
-                // else
-                //   {              }
+                );
+                else
+                  print('The status is $status');
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +83,7 @@ class LoginButtonState extends State<LoginButton>{
             alignment: Alignment.center,
             width: MediaQuery.of(context).size.width,
             child: FlatButton(
-              onPressed: (){},
+              onPressed: () {},
               child: Text(
                 'Forgot Password?',
                 style: TextStyle(
@@ -102,5 +97,4 @@ class LoginButtonState extends State<LoginButton>{
       ),
     );
   }
-  
 }

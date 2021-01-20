@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/ActiveBids.dart';
 import 'package:virtual_auction/design/PastBids.dart';
 import 'package:virtual_auction/design/UpcomingBids.dart';
+import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
 class CardView extends StatelessWidget {
   @override
@@ -79,21 +80,27 @@ class CardViewState extends State<Card1> {
               ),
             ),
             onTap: () {
-              if(value == 'Active\nBids')
+              if(value == 'Active\nBids') {
+               new BidsListViewState().type = 'active';
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ActiveBids()),
                 );
-              else if(value == 'Upcoming\nBids')
+              }
+              else if(value == 'Upcoming\nBids') {
+                new BidsListViewState().type = 'upcoming';
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => UpcomingBids()),
                 );
-              else if(value == 'Past\nBids')
+              }
+              else if(value == 'Past\nBids') {
+                new BidsListViewState().type = 'past';
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => PastBids()),
                 );
+              }
             }
           ),
         ),

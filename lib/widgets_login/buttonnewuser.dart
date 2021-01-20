@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/development/Signup.dart';
+import 'package:virtual_auction/widgets_login/newName.dart';
 import 'package:virtual_auction/widgets_login/inputPhone.dart';
+import 'package:virtual_auction/widgets_login/newEmail.dart';
+import 'package:virtual_auction/widgets_login/adhaar.dart';
 import 'package:virtual_auction/widgets_login/password.dart';
-
 import '../design/home.dart';
 
 class ButtonNewUserWidget extends StatelessWidget {
@@ -20,8 +22,12 @@ class ButtonNewUser extends StatefulWidget {
 
 
 class ButtonNewUserState extends State<ButtonNewUser> {
+
+
+
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.only(top: 40, left: 40, right: 40, bottom: 20),
       child: Container(
@@ -42,11 +48,15 @@ class ButtonNewUserState extends State<ButtonNewUser> {
             ],
             color: Colors.black, borderRadius: BorderRadius.circular(30)),
         child: FlatButton(
-          onPressed: (){
+          onPressed: () async {
+            String status = await new Signup().signup();
+            if(status == 'success')
             Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Home())
             );
+            else
+              print(status);
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/Login.dart';
+import 'package:virtual_auction/development/Signup.dart';
 
 class NewEmailWidget extends StatelessWidget {
   @override
@@ -14,8 +16,10 @@ class NewEmail extends StatefulWidget {
 }
 
 class NewEmailState extends State<NewEmail> {
+
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.only(top: 15, left: 50, right: 50),
       child: Container(
@@ -25,6 +29,11 @@ class NewEmailState extends State<NewEmail> {
           style: TextStyle(
             color: Colors.white,
           ),
+          onChanged: (value){
+            new Signup().email=value;
+            new Login().email=value;
+            print(value);
+          },
           decoration: InputDecoration(
             border: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -42,4 +51,5 @@ class NewEmailState extends State<NewEmail> {
       ),
     );
   }
+
 }
