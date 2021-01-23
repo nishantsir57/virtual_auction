@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
       title: 'Virtual Auction',
-      home: new LoginPage(),
+      home: new BiddigPage(),
     );
   }
 

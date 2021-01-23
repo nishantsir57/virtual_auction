@@ -16,6 +16,7 @@ class AddFundsView extends StatefulWidget {
 
 class AddFundsViewState extends State<AddFundsView> {
   static String presentAmountInAccount="100";
+  static String addAmountValue;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class AddFundsViewState extends State<AddFundsView> {
               child: accountBalance("Balance: 101")),
          Container(
          width: MediaQuery.of(context).size.width/2.14,
-             child: addfunds())
+             child: addfunds(addAmountValue))
         ],
       ),
     );
@@ -56,7 +57,8 @@ Widget accountBalance(String howmuch){
   );
 }
 
-Widget addfunds(){
+Widget addfunds(String addAmountValue){
+
   return  Container(
     color: Colors.green,
     child: Padding(
@@ -65,31 +67,62 @@ Widget addfunds(){
         alignment: Alignment.center,
         height: 55,
         // width: 100,
-        child: FlatButton(
-          onPressed: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Icon(
-                  Icons.add,
-                  color: Colors.black,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Text(
-                  'Add Funds',
+        child: Row(
+          children: [
+            Container(
+              width: 200,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  onChanged: (value) => addAmountValue=value,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
+                  ),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors.red,
+                            width: 0.1
+                        )
+                    ),
+                    fillColor: Colors.black,
+                    labelText: 'IN RUPEES',
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+            FlatButton(
+              onPressed: () {
+                return null;
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: Text(
+                      'Add Funds',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     ),
