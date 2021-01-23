@@ -7,16 +7,29 @@ import 'package:virtual_auction/widgets/ListView_Bids.dart';
 class DateTime extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return DateTimeView();
+    return DateTimeView(start, end);
+  }
+  String start, end;
+  DateTime(String start, String end)
+  {
+    this.start=start;
+    this.end=end;
   }
 }
 
 class DateTimeView extends StatefulWidget {
+  String start, end;
+  DateTimeView(String start, String end)
+  {
+    this.start=start;
+    this.end=end;
+  }
   @override
-  DateTimeViewState createState()=>DateTimeViewState();
+  DateTimeViewState createState()=>DateTimeViewState(start, end);
 }
 
 class DateTimeViewState extends State<DateTimeView>{
+  String start, end;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,10 +38,15 @@ class DateTimeViewState extends State<DateTimeView>{
       child: new ListView(
         children: <Widget>[
           BiddingPageDate(),
-          BiddingPageTime()
+          BiddingPageTime(start, end)
         ],
       ),
     );
+  }
+  DateTimeViewState(String start, String end)
+  {
+    this.start=start;
+    this.end=end;
   }
 }
 
@@ -72,7 +90,7 @@ Widget BiddingPageDate()
   );
 }
 
-Widget BiddingPageTime()
+Widget BiddingPageTime(String start, String end)
 {
   return Container(
     // decoration: myBoxDecoration(),
@@ -80,7 +98,7 @@ Widget BiddingPageTime()
     child: Padding(
       padding: const EdgeInsets.all(3.0),
       child: Center(
-        child: Row(
+        child: Column(
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -93,7 +111,7 @@ Widget BiddingPageTime()
             ),
             Padding(
               padding: const EdgeInsets.all(3.0),
-              child: Text(BidsListViewState.startTime+ "    to   ",
+              child: Text(start+ "    to   ",
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
