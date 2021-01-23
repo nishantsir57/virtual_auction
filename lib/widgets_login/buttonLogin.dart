@@ -54,7 +54,18 @@ class LoginButtonState extends State<LoginButton> {
                     MaterialPageRoute(builder: (context) => Home())
                 );
                 else
-                  print('The status is $status');
+                 {
+                   print(status);
+                   showDialog(
+                     context: context,
+                     builder: (BuildContext context) {
+                       return new AlertDialog(
+                         title: new Text(status),
+                         // content: new Text(status),
+                       );
+                     },
+                   );
+                 }
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

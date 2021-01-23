@@ -71,14 +71,15 @@ class BidsListViewState extends State<BidsListView> {
               itemBuilder: (context, i) {
                 return Container (
                   height: MediaQuery.of(context).size.height/1.6,
-                  child: onlyCard(
+                  child: new BidsDetailCardViewState().onlyCard(
                       nameofbid=list[i]['nameofbid'],
                       startPrice=list[i]['startPrice'].toString(),
                       currentPrice=list[i]['currentPrice'].toString(),
                       startTime=list[i]['startTime'].toDate().toString(),
                       endTime=list[i]['endTime'].toDate().toString(),
                       dateOfBid="12-11-2020",
-                      bidImageURL=list[i]['bidImageURL']
+                      bidImageURL=list[i]['bidImageURL'],
+                    context
                   ),
                 );
               }

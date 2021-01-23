@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/design/BiddingPage.dart';
 
 import 'ListView_Bids.dart';
 
@@ -9,6 +10,8 @@ class BidsDetailCardView extends StatefulWidget {
 }
 
 class BidsDetailCardViewState extends State<BidsDetailCardView> {
+  static String _name;
+  get Name => _name;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,10 +23,11 @@ class BidsDetailCardViewState extends State<BidsDetailCardView> {
           BidsListViewState.startTime,
           BidsListViewState.endTime,
           BidsListViewState.dateOfBid,
-          BidsListViewState.bidImageURL),
+          BidsListViewState.bidImageURL,
+          context
+      ),
     );
   }
-}
 
 BoxDecoration myBoxDecoration() {
   return BoxDecoration(
@@ -70,86 +74,92 @@ Widget Nameofbid(String namedata) {
     ),
   );
 }
-
-Widget onlyCard(String nameofbid, String startbidprice, String currentbidprice,
-    String starttime, String endtime, String dateofbid, String pathofImage) {
-  return Container(
-    color: Colors.white10,
-    height: 200,
-    child: Padding(
-      padding: const EdgeInsets.all(3.0),
-      child: Card(
-        semanticContainer: true,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18.0),
-        ),
-        color: Colors.greenAccent,
-        elevation: 10,
-        child: GestureDetector(
-          child: Column(
-            children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                margin: new EdgeInsets.only(top: 10),
-                height: 160,
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Container(
-                    child: Image.network(
-                      pathofImage,
-                      fit: BoxFit.fitWidth,
-                      alignment: Alignment.topCenter,
+  Widget onlyCard(String nameofbid, String startbidprice,
+      String currentbidprice,
+      String starttime, String endtime, String dateofbid, String pathofImage,
+      BuildContext context) {
+    return Container(
+      color: Colors.white10,
+      height: 200,
+      child: Padding(
+        padding: const EdgeInsets.all(3.0),
+        child: Card(
+          semanticContainer: true,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18.0),
+          ),
+          color: Colors.greenAccent,
+          elevation: 10,
+          child: GestureDetector(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  margin: new EdgeInsets.only(top: 10),
+                  height: 160,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Container(
+                      child: Image.network(
+                        pathofImage,
+                        fit: BoxFit.fitWidth,
+                        alignment: Alignment.topCenter,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Nameofbid("Name: " + nameofbid)),
-                  Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: dataofbid("Start Bid Price: " + startbidprice)),
-                  Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child:
-                          dataofbid("Current Bid Price: " + currentbidprice)),
-                  Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: dataofbid("Start Time: " + starttime)),
-                  Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: dataofbid("End Time: " + endtime)),
-                  // Row(
-                  //   mainAxisSize: MainAxisSize.max,
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     Padding(
-                  //         padding: const EdgeInsets.all(2.0),
-                  //         child: dataofbid("Start Time: "+starttime)
-                  //     ),
-                  //     Padding(
-                  //         padding: const EdgeInsets.all(2.0),
-                  //         child: dataofbid("End Time: "+endtime)
-                  //     ),
-                  //   ],
-                  // ),
-                  Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: dataofbid("Date of Bid: " + dateofbid))
-                ],
-              ),
-            ],
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Nameofbid("Name: " + nameofbid)),
+                    Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: dataofbid("Start Bid Price: " + startbidprice)),
+                    Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child:
+                        dataofbid("Current Bid Price: " + currentbidprice)),
+                    Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: dataofbid("Start Time: " + starttime)),
+                    Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: dataofbid("End Time: " + endtime)),
+                    // Row(
+                    //   mainAxisSize: MainAxisSize.max,
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     Padding(
+                    //         padding: const EdgeInsets.all(2.0),
+                    //         child: dataofbid("Start Time: "+starttime)
+                    //     ),
+                    //     Padding(
+                    //         padding: const EdgeInsets.all(2.0),
+                    //         child: dataofbid("End Time: "+endtime)
+                    //     ),
+                    //   ],
+                    // ),
+                    Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: dataofbid("Date of Bid: " + dateofbid))
+                  ],
+                ),
+              ],
+            ),
+            onTap: () {
+              //TODO HERE
+              _name=nameofbid;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BiddigPage()),
+              );
+            },
           ),
-          onTap: ()
-          {
-            //TODO HERE
-          },
         ),
       ),
-    ),
-  );
+    );
+  }
 }

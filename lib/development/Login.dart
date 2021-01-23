@@ -16,10 +16,10 @@ class Login
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        return 'No user found for that email.';
+        return 'User Not Found';
         // print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
-        return 'Wrong password provided for that user.';
+        return 'Invalid Password!!! Please try again';
         // print('Wrong password provided for that user.');
       }
     }

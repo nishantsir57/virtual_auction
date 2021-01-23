@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
-Widget CurrentPrice(){
+Widget CurrentPrice(String price){
   return Card(
     color: Colors.deepOrangeAccent,
     elevation: 10,
@@ -16,7 +16,7 @@ Widget CurrentPrice(){
         child: FlatButton(
           onPressed: (){},
           child: Text(
-            "Current Price: "+BidsListViewState.currentPrice,
+            "Current Price: "+price,
             style: TextStyle(
               color: Colors.black,
               letterSpacing: 2,

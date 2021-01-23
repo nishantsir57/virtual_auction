@@ -7,6 +7,9 @@ import 'package:virtual_auction/Widgets_bidding_page/CurrentPrice_Wid.dart';
 import 'package:virtual_auction/Widgets_bidding_page/Date_Time.dart';
 import 'package:virtual_auction/Widgets_bidding_page/PlaceBid_Button.dart';
 import 'ListView_Bids.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:virtual_auction/development/FetchBids.dart';
+import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
 
 class DescriptionBid extends StatelessWidget{
   @override
@@ -23,13 +26,25 @@ class DescriptionOfBid extends StatefulWidget{
 class DescriptionOfBidState extends State<DescriptionOfBid> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      child: descriptionCard(),
+    return FutureBuilder(
+      future: FetchBids().fetchBid(new BidsDetailCardViewState().Name),
+      builder: (BuildContext context, AsyncSnapshot<List<DocumentSnapshot>> snapshot) {
+        if (snapshot.hasData) {
+          return fillDetails(context, snapshot.data);
+        }
+
+        return CircularProgressIndicator();
+      },
     );
   }
 }
-
+fillDetails(BuildContext context, List<DocumentSnapshot> doc)
+{
+  return Container(
+    height: MediaQuery.of(context).size.height,
+    child: descriptionCard(doc),
+  );
+}
 BoxDecoration myBoxDecoration() {
   return BoxDecoration(
     border: Border.all(
@@ -39,7 +54,8 @@ BoxDecoration myBoxDecoration() {
   );
 }
 
-Widget descriptionCard(){
+Widget descriptionCard(List<DocumentSnapshot> doc){
+
   return Container(
     color: Colors.white,
     child: Padding(
@@ -55,7 +71,7 @@ Widget descriptionCard(){
               padding: const EdgeInsets.all(1.0),
               child: Container(
                 decoration: myBoxDecoration(),
-                child: Image.network(BidsListViewState.bidImageURL,
+                child: Image.network(doc[0]['bidImageURL'],
                   fit: BoxFit.fitWidth,
                   alignment: Alignment.topCenter,),
               ),
@@ -74,12 +90,12 @@ Widget descriptionCard(){
             margin: new EdgeInsets.all(2.0),
             child: Padding(
               padding: const EdgeInsets.all(1.0),
-              child: CurrentPrice(),
+              child: CurrentPrice(doc[0]['currentPrice'].toString()),
             ),
           ),
           Container(
               margin: new EdgeInsets.only(top: 2),
-              child: DateTime()
+              child: DateTime(doc[0]['startTime'], doc[0]['endTime'])
           ),
           Container(
             margin: new EdgeInsets.only(top: 2),
