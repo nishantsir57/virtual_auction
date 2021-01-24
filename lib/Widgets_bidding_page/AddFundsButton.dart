@@ -23,14 +23,13 @@ class AddFundsViewState extends State<AddFundsView> {
     return Container(
       margin: new EdgeInsets.all(1.0),
       // decoration: myBoxDecoration(),
-      child: Row(
+      child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Container(
-              width: MediaQuery.of(context).size.width/2.14,
+              height: 40,
               child: accountBalance("Balance: 101")),
          Container(
-         width: MediaQuery.of(context).size.width/2.14,
              child: addfunds(addAmountValue))
         ],
       ),
@@ -40,15 +39,14 @@ class AddFundsViewState extends State<AddFundsView> {
 
 Widget accountBalance(String howmuch){
   return Container(
-    // decoration: myBoxDecoration(),
     child: Padding(
-      padding: const EdgeInsets.all(3.0),
+      padding: const EdgeInsets.all(10.0),
       child: Text(howmuch,
         textAlign: TextAlign.start,
         style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 15,
-            letterSpacing: 2.5,
+            letterSpacing: 2,
             wordSpacing: 5,
             color: Colors.black
         ),

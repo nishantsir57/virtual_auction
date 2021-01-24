@@ -34,10 +34,10 @@ class DateTimeViewState extends State<DateTimeView>{
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 15),
-      height: 90,
-      child: new ListView(
-        children: <Widget>[
-          BiddingPageDate(),
+      height: 120,
+      child: new Column(
+        children: [
+          // BiddingPageDate(),
           BiddingPageTime(start, end)
         ],
       ),
@@ -49,52 +49,50 @@ class DateTimeViewState extends State<DateTimeView>{
     this.end=end;
   }
 }
-
-Widget BiddingPageDate()
-{
-  return Container(
-    // decoration: myBoxDecoration(),
-    height: 45,
-    child: Padding(
-      padding: const EdgeInsets.all(3.0),
-      child: Center(
-        child: Row(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                child: Icon(
-                  Icons.date_range,
-                  color: Colors.black38,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(3.0),
-              child: Text(BidsListViewState.dateOfBid,
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 15,
-                    letterSpacing: 1,
-                    wordSpacing: 2,
-                    color: Colors.black
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
+//
+// Widget BiddingPageDate()
+// {
+//   return Container(
+//     // decoration: myBoxDecoration(),
+//     child: Padding(
+//       padding: const EdgeInsets.all(3.0),
+//       child: Center(
+//         child: Row(
+//           children: <Widget>[
+//             Padding(
+//               padding: const EdgeInsets.all(10.0),
+//               child: Container(
+//                 child: Icon(
+//                   Icons.date_range,
+//                   color: Colors.black38,
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(3.0),
+//               child: Text(BidsListViewState.dateOfBid,
+//                 textAlign: TextAlign.start,
+//                 style: TextStyle(
+//                     fontWeight: FontWeight.normal,
+//                     fontStyle: FontStyle.italic,
+//                     fontSize: 15,
+//                     letterSpacing: 1,
+//                     wordSpacing: 2,
+//                     color: Colors.black
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     ),
+//   );
+// }
 
 Widget BiddingPageTime(String start, String end)
 {
   return Container(
     // decoration: myBoxDecoration(),
-    height: 50,
     child: Padding(
       padding: const EdgeInsets.all(3.0),
       child: Center(
@@ -111,7 +109,7 @@ Widget BiddingPageTime(String start, String end)
             ),
             Padding(
               padding: const EdgeInsets.all(3.0),
-              child: Text(start+ "    to   ",
+              child: Text(start + " to ",
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
@@ -125,7 +123,7 @@ Widget BiddingPageTime(String start, String end)
             ),
             Padding(
               padding: const EdgeInsets.all(3.0),
-              child: Text(BidsListViewState.endTime,
+              child: Text(end,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
@@ -144,11 +142,3 @@ Widget BiddingPageTime(String start, String end)
   );
 }
 
-BoxDecoration myBoxDecoration() {
-  return BoxDecoration(
-    border: Border.all(
-      color: Colors.black26,
-      width: 1.2,
-    ),
-  );
-}

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/design/home.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
 class UpcomingBids extends StatefulWidget{
@@ -28,6 +29,21 @@ class UpcomingBidsState extends State<UpcomingBids> {
                       color: Colors.amber
                   ),
                 )
+            ),
+          ),
+          leading: FlatButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(3.0),
+              child: Icon(
+                Icons.arrow_back_outlined,
+                color: Colors.black,
+              ),
             ),
           ),
         ),

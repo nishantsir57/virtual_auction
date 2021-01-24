@@ -53,14 +53,8 @@ class HomeState extends State<Home>{
             IconButton(
               color: Colors.black,
               icon: Icon(Icons.live_help),
-              onPressed: () {
-                Navigator.push(
-                  context,
-
-
-                  //TODO HERE put help section
-                  MaterialPageRoute(builder: (context) => null),
-                );
+              onPressed: () async {
+                showAlertDialog(context);
               },
             ),
           ],
@@ -70,3 +64,47 @@ class HomeState extends State<Home>{
     );
   }
 }
+
+showAlertDialog(BuildContext context) {
+  // Create button
+  Widget okButton = FlatButton(
+    child: Row(
+      children: [
+        // Text(""),
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Icon(Icons.thumb_up,color: Colors.blue,),
+        )
+      ],
+    ),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+
+  );
+  AlertDialog alert = AlertDialog(
+    elevation: 20,
+    backgroundColor: Colors.black,
+    title: Text("Requires Help?\n",
+      style: TextStyle(
+        color: Colors.white,
+        wordSpacing: 2,
+        letterSpacing: 1.6,
+      ),
+    ),
+    content: Text("Call us at 1234567890\n\nMail us at help@healthAssistant.com",
+      style: TextStyle(color: Colors.white),
+    ),
+    actions: [
+      okButton,
+
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
