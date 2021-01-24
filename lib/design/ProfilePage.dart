@@ -19,7 +19,7 @@ class ProfilePageWidget extends StatefulWidget{
 }
 
 class ProfilePageWidgetState extends State<ProfilePageWidget>{
-  static String profilePicutrePath;
+  static String profilePicutrePath="https://i.pinimg.com/originals/eb/2c/14/eb2c14c4effe7277d069c41dd482ab10.jpg";
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,7 +41,7 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
           decoration: mBoxDecoration(),
           child: ListView(
               children: <Widget>[
-                profilePicture(BidsListViewState.bidImageURL),
+                profilePicture("https://i.pinimg.com/originals/eb/2c/14/eb2c14c4effe7277d069c41dd482ab10.jpg"),
                 dataOfPerson("Name: Take Name data from Name Variable"),
                 dataOfPerson("Email: from NewEmail widget"),
                 dataOfPerson("Phone: from inputPhone Widget"),
@@ -53,7 +53,7 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
                 ),
                 Container(
                   margin: EdgeInsets.all(3.0),
-                    child: addfunds())
+                    child: addfunds(AddFundsViewState.addAmountValue))
                 // dataOfPerson("personData")
               ]
           ),
