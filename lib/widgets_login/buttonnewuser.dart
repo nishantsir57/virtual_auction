@@ -42,11 +42,26 @@ class ButtonNewUserState extends State<ButtonNewUser> {
             ],
             color: Colors.black, borderRadius: BorderRadius.circular(30)),
         child: FlatButton(
-          onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Home())
-            );
+          onPressed: () async{
+            String status=await new Signup().signup();
+            if(status == 'success') {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home())
+              );
+            }
+            else
+              {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return new AlertDialog(
+                      title: new Text(status),
+                      // content: new Text(status),
+                    );
+                  },
+                );
+              }
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

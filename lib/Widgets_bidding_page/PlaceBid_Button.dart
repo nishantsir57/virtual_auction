@@ -28,7 +28,9 @@ class PlaceBidButtonState extends State<PlaceBidButton>{
           borderRadius: BorderRadius.circular(30),
         ),
         child: FlatButton(
-          onPressed: () {},
+          onPressed: () {
+            //TODO HERE
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

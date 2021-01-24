@@ -94,7 +94,7 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
           ),
           Container(
               margin: new EdgeInsets.only(top: 2),
-              child: DateTime(doc[0]['startTime'], doc[0]['endTime'])
+              child: DateTime(doc[0]['startTime'].toString(), doc[0]['endTime'].toString())
           ),
           Container(
             margin: new EdgeInsets.only(top: 2),

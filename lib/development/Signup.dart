@@ -32,7 +32,7 @@ class Signup
         return 'The password provided is too weak.';
         print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        return 'The account already exists for that email.';
+        return 'The account already exists for given email.';
         print("The account already exists for that email.");
       }
     }
@@ -48,7 +48,8 @@ class Signup
         'password': _pass, // Stokes and Sons
         'name' : _name,
         'adhar' : _adhar,
-        'phone' : _phone
+        'phone' : _phone,
+        'fund' : '0'
       })
           .then((value) => print("User Added"))
           .catchError((error) => print("Failed to add user: $error"));

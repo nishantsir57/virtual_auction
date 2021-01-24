@@ -1,15 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/ProfilePage.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../widgets/Home_CardView.dart';
+import 'package:virtual_auction/development/FetchProfile.dart';
 
 class Home extends StatefulWidget{
   @override
-  _HomeState createState()=> _HomeState();
+  HomeState createState()=> HomeState();
 }
 
-class _HomeState extends State<Home>{
+class HomeState extends State<Home>{
+  static List<DocumentSnapshot> _doc;
+  get doc => _doc;
   @override
   Widget build(BuildContext context) {
     return getDetails();
@@ -23,11 +26,15 @@ class _HomeState extends State<Home>{
           leading: IconButton(
             color: Colors.black,
             icon: Icon(Icons.account_circle),
-            onPressed: () {
+            onPressed: () async{
+              _doc=await new FetchProfile().fetchProfile();
+              if(_doc.length > 0)
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ProfilePage()),
               );
+              else
+                print(doc.length);
             },
           ),
           backgroundColor: Colors.redAccent,
@@ -49,7 +56,10 @@ class _HomeState extends State<Home>{
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
+
+
+                  //TODO HERE put help section
+                  MaterialPageRoute(builder: (context) => null),
                 );
               },
             ),

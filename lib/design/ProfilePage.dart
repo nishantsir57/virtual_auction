@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/Widgets_bidding_page/AddFundsButton.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:virtual_auction/design/home.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 import 'package:virtual_auction/widgets_login/inputPhone.dart';
 import 'package:virtual_auction/widgets_login/newName.dart';
@@ -20,8 +22,14 @@ class ProfilePageWidget extends StatefulWidget{
 
 class ProfilePageWidgetState extends State<ProfilePageWidget>{
   static String profilePicutrePath="https://i.pinimg.com/originals/eb/2c/14/eb2c14c4effe7277d069c41dd482ab10.jpg";
+  List<DocumentSnapshot> _doc=new HomeState().doc;
+
   @override
   Widget build(BuildContext context) {
+    String _name=_doc[0]['name'];
+    String _email=_doc[0]['email'];
+    String _phone=_doc[0]['phone'];
+    String _fund=_doc[0]['fund'];
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -42,13 +50,13 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
           child: ListView(
               children: <Widget>[
                 profilePicture("https://i.pinimg.com/originals/eb/2c/14/eb2c14c4effe7277d069c41dd482ab10.jpg"),
-                dataOfPerson("Name: Take Name data from Name Variable"),
-                dataOfPerson("Email: from NewEmail widget"),
-                dataOfPerson("Phone: from inputPhone Widget"),
+                dataOfPerson("Name: $_name"),
+                dataOfPerson("Email: $_email"),
+                dataOfPerson("Phone: $_phone"),
                 Container(
                     height: 55,
                     child: Card(
-                        child: accountBalance("Account Balance: 101")
+                        child: accountBalance("Account Balance: $_fund")
                     )
                 ),
                 Container(

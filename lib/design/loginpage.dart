@@ -6,6 +6,7 @@ import 'package:virtual_auction/widgets_login/password.dart';
 import 'package:virtual_auction/widgets_login/textLogin.dart';
 import 'package:virtual_auction/widgets_login/verticalText.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends  StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class LoginPage extends  StatefulWidget {
 class _LoginPageState extends State<LoginPage>{
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         body: Container(

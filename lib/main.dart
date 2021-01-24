@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:virtual_auction/design/ProfilePage.dart';
 import 'package:virtual_auction/design/ActiveBids.dart';
 import 'package:virtual_auction/design/home.dart';
@@ -38,37 +39,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       title: 'Virtual Auction',
-      home: new BiddigPage(),
+      home: checkUser(),
     );
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return FutureBuilder(
-  //     // Initialize FlutterFire:
-  //     future: _initialization,
-  //     builder: (context, snapshot) {
-  //       // Check for errors
-  //       if (snapshot.hasError) {
-  //         return new Text("Something went wrong");
-  //       }
-  //
-  //       // Once complete, show your application
-  //       if (snapshot.connectionState == ConnectionState.done) {
-  //          return MaterialApp(
-  //
-  //           debugShowCheckedModeBanner: false,
-  //           title: 'Virtual Auction',
-  //           home: new LoginPage(),
-  //         );
-  //       }
-  //
-  //       // Otherwise, show something whilst waiting for initialization to complete
-  //       return new Text("Loading...");
-  //     },
-  //   );
-  // }
+  Widget checkUser()
+  {
+    if(FirebaseAuth.instance.currentUser != null)
+    {
+      return new Home();
+    }
+    else
+      return new LoginPage();
+  }
 }
