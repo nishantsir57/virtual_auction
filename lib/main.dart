@@ -47,11 +47,11 @@ class MyApp extends StatelessWidget {
 
   Widget checkUser()
   {
-    if(FirebaseAuth.instance.currentUser != null)
-    {
-      return new Home();
-    }
-    else
+    // if(FirebaseAuth.instance.currentUser != null)
+    // {
+    //   return new Home();
+    // }
+    // else
       return new LoginPage();
   }
 }
