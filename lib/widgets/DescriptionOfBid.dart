@@ -13,6 +13,12 @@ import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
 class DescriptionBid extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    // var doc=FirebaseFirestore.instance.collection('bids').doc(new BidsDetailCardViewState().Name).snapshots();
+    // return StreamBuilder(
+    //     builder: doc,
+    //
+    //
+    // );
     return DescriptionOfBid();
   }
 }
@@ -23,9 +29,10 @@ class DescriptionOfBid extends StatefulWidget{
 }
 
 class DescriptionOfBidState extends State<DescriptionOfBid> {
-  String _bidName;
-  String _price;
+  static String _bidName;
+  static String _price;
   get price => _price;
+  set price(value) => _price=value;
   get bidName => _bidName;
 
 
@@ -97,7 +104,7 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
             margin: new EdgeInsets.all(2.0),
             child: Padding(
               padding: const EdgeInsets.all(1.0),
-              child: new CurrentPrice().currentPrice(doc[0]['currentPrice'].toString()),
+              child: new Price(),
             ),
           ),
           Container(

@@ -37,7 +37,7 @@ class PlaceBidButtonState extends State<PlaceBidButton>{
           onPressed: () async{
               String bidAmount=await new BidAmountWidgetState().bidAmount;
               await new PutBid().putBid(double.parse(bidAmount), await new BidsDetailCardViewState().Name);
-              // new currentPrice().createState();
+              await new DescriptionOfBidState().price(bidAmount);
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
