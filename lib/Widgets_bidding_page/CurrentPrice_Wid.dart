@@ -9,8 +9,10 @@ class Price extends StatelessWidget
 {
   @override
   Widget build(BuildContext context) {
-
-    return CreatePriceState();
+    // Stream bids = FirebaseFirestore.instance.collection('bids').snapshots();
+    //
+    // while(true)
+      return CreatePriceState();
   }
 
 }
@@ -22,9 +24,11 @@ class CreatePriceState extends StatefulWidget
 class PriceState extends State<CreatePriceState>
 {
   String _price;
+  String _name;
   @override
   Widget build(BuildContext context) {
     _price=new DescriptionOfBidState().price;
+    _name=new DescriptionOfBidState().bidderName;
     return Card(
       color: Colors.deepOrangeAccent,
       elevation: 10,
@@ -37,7 +41,7 @@ class PriceState extends State<CreatePriceState>
           child: FlatButton(
             onPressed: () {},
             child: Text(
-              "Current Price: $_price",
+              "$_name : $_price",
               style: TextStyle(
                 color: Colors.black,
                 letterSpacing: 2,

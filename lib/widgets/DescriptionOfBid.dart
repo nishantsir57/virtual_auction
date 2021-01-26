@@ -13,13 +13,22 @@ import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
 class DescriptionBid extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // var doc=FirebaseFirestore.instance.collection('bids').doc(new BidsDetailCardViewState().Name).snapshots();
-    // return StreamBuilder(
-    //     builder: doc,
-    //
-    //
-    // );
-    return DescriptionOfBid();
+    Stream bids = FirebaseFirestore.instance.collection('bids').snapshots();
+    return StreamBuilder<QuerySnapshot>(
+        stream: bids,
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return Text('Something went wrong');
+          }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Text("Loading");
+          }
+
+          return DescriptionOfBid();
+        },
+      );
+    // return DescriptionOfBid();
   }
 }
 
@@ -31,6 +40,8 @@ class DescriptionOfBid extends StatefulWidget{
 class DescriptionOfBidState extends State<DescriptionOfBid> {
   static String _bidName;
   static String _price;
+  static String _bidderName;
+  get bidderName => _bidderName;
   get price => _price;
   set price(value) => _price=value;
   get bidName => _bidName;
@@ -44,6 +55,7 @@ class DescriptionOfBidState extends State<DescriptionOfBid> {
         if (snapshot.hasData) {
           _bidName=snapshot.data[0]['nameofbid'];
           _price=snapshot.data[0]['currentPrice'].toString();
+          _bidderName=snapshot.data[0]['email'];
           return fillDetails(context, snapshot.data);
         }
 

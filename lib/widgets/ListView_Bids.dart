@@ -25,31 +25,11 @@ class BidsListViewState extends State<BidsListView> {
   static String bidImageURL;
   static String _type;
   set type(String value) => _type=value;
+  get type=>_type;
+  get name => nameofbid;
 
   @override
   Widget build(BuildContext context) {
-    // Future<List<DocumentSnapshot>> l=new FetchBids().fetchBids(_type);
-    // return createList(context);
-      // SafeArea(
-      // child: createList(context)
-      // ListView.builder(
-      //     padding: const EdgeInsets.all(3),
-      //     itemBuilder: (context, i) {
-      //       return Container(
-      //           height: MediaQuery.of(context).size.height/2.15,
-      //           child: onlyCard(
-      //               nameofbid=list[i]['nameofbid'],
-      //               startPrice=list[i]['startPrice'],
-      //               currentPrice=list[i]['currentPrice'],
-      //               startTime=list[i]['startTime'],
-      //               endTime=list[i]['endTime'],
-      //               dateOfBid="12-11-2020",
-      //               bidImageURL=list[i]['bidImageURL']
-      //         ),
-      //       );
-      //     }
-      // ),
-    // );
     return FutureBuilder(
       future: FetchBids().fetchBids(_type),
       builder: (BuildContext context, AsyncSnapshot<List<DocumentSnapshot>> snapshot) {

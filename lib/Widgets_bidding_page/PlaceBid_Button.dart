@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/FetchBids.dart';
 import 'package:virtual_auction/development/PutBid.dart';
 import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
 import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
+import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
 import 'BidAmount_TextField.dart';
 import 'CurrentPrice_Wid.dart';
@@ -36,8 +38,27 @@ class PlaceBidButtonState extends State<PlaceBidButton>{
         child: FlatButton(
           onPressed: () async{
               String bidAmount=await new BidAmountWidgetState().bidAmount;
+              double amount=await FetchBids().getAmount(await BidsListViewState().name);
               await new PutBid().putBid(double.parse(bidAmount), await new BidsDetailCardViewState().Name);
               await new DescriptionOfBidState().price(bidAmount);
+              // if(double.parse(bidAmount) >  amount)
+              //   {
+              //     await new PutBid().putBid(double.parse(bidAmount), await new BidsDetailCardViewState().Name);
+              //     await new DescriptionOfBidState().price(bidAmount);
+              //   }
+              // else
+              //   {
+              //     showDialog(
+              //       context: context,
+              //       builder: (BuildContext context) {
+              //         return new AlertDialog(
+              //           title: new Text('Please Put bid heigher then current price'),
+              //           // content: new Text(status),
+              //         );
+              //       },
+              //     );
+              //   }
+
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

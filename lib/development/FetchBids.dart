@@ -26,4 +26,16 @@ class FetchBids
     });
     return l;
   }
+  Future<double> getAmount(String name) async
+  {
+    List<DocumentSnapshot> l=new List<DocumentSnapshot>();
+    await FirebaseFirestore.instance.collection('bids').get()
+        .then((snapshot) => {
+      snapshot.docs.forEach((doc) {
+        if(doc['nameofbid'] == name)
+          l.add(doc);
+      })
+    });
+
+  }
 }
