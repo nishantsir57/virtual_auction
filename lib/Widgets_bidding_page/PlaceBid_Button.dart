@@ -1,5 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/development/PutBid.dart';
+import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
+import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
+
+import 'BidAmount_TextField.dart';
+import 'CurrentPrice_Wid.dart';
 
 class PlaceBid extends StatelessWidget {
   @override
@@ -28,8 +34,10 @@ class PlaceBidButtonState extends State<PlaceBidButton>{
           borderRadius: BorderRadius.circular(30),
         ),
         child: FlatButton(
-          onPressed: () {
-            //TODO HERE
+          onPressed: () async{
+              String bidAmount=await new BidAmountWidgetState().bidAmount;
+              await new PutBid().putBid(double.parse(bidAmount), await new BidsDetailCardViewState().Name);
+              // new currentPrice().createState();
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

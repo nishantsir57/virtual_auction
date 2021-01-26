@@ -23,12 +23,20 @@ class DescriptionOfBid extends StatefulWidget{
 }
 
 class DescriptionOfBidState extends State<DescriptionOfBid> {
+  String _bidName;
+  String _price;
+  get price => _price;
+  get bidName => _bidName;
+
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: FetchBids().fetchBid(new BidsDetailCardViewState().Name),
       builder: (BuildContext context, AsyncSnapshot<List<DocumentSnapshot>> snapshot) {
         if (snapshot.hasData) {
+          _bidName=snapshot.data[0]['nameofbid'];
+          _price=snapshot.data[0]['currentPrice'].toString();
           return fillDetails(context, snapshot.data);
         }
 
@@ -89,12 +97,12 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
             margin: new EdgeInsets.all(2.0),
             child: Padding(
               padding: const EdgeInsets.all(1.0),
-              child: CurrentPrice(doc[0]['currentPrice'].toString()),
+              child: new CurrentPrice().currentPrice(doc[0]['currentPrice'].toString()),
             ),
           ),
           Container(
               margin: new EdgeInsets.only(top: 2),
-              child: DateTime(doc[0]['startTime'].toString(), doc[0]['endTime'].toString())
+              child: DateTime(doc[0]['startTime'].toDate().toString(), doc[0]['endTime'].toDate().toString())
           ),
           Container(
             margin: new EdgeInsets.only(top: 2),

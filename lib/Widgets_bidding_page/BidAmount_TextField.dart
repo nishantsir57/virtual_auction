@@ -15,7 +15,8 @@ class BidAmountWidget extends StatefulWidget {
 }
 
 class BidAmountWidgetState extends State<BidAmountWidget> {
-  static String bidAmount;
+  static String _bidAmount;
+  get bidAmount => _bidAmount;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,7 +51,7 @@ class BidAmountWidgetState extends State<BidAmountWidget> {
                 height: 60,
                 width: MediaQuery.of(context).size.width/2,
                 child: TextField(
-                  onChanged: (value) => bidAmount=value,
+                  onChanged: (value) => _bidAmount=value,
                   style: TextStyle(
                     color: Colors.black,
                   ),
