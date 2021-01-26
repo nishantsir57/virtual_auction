@@ -36,6 +36,6 @@ class FetchBids
           l.add(doc);
       })
     });
-
+    return l[0]['currentPrice'];
   }
 }

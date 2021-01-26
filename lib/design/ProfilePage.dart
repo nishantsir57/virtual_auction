@@ -29,7 +29,6 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
     String _name=_doc[0]['name'];
     String _email=_doc[0]['email'];
     String _phone=_doc[0]['phone'];
-    String _fund=_doc[0]['fund'];
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -56,7 +55,7 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
                 Container(
                     height: 55,
                     child: Card(
-                        child: accountBalance("Account Balance: $_fund")
+                        child: accountBalance()
                     )
                 ),
                 Container(

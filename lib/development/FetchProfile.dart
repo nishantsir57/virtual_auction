@@ -18,4 +18,23 @@ class FetchProfile
     // print(l[0]['name']);
     return l;
   }
+  Future<double> getAmount() async
+  {
+    String uid=FirebaseAuth.instance.currentUser.email;
+    List<DocumentSnapshot> l;
+    double amount=0;
+    await FirebaseFirestore.instance.collection('users').doc(uid).get().then((value){
+      amount=value['fund'];
+    });
+    //   snapshot.docs.forEach((doc) {
+    //     // print(uid);
+    //     if(doc.id == uid)
+    //       {
+    //         l.add(doc);
+    //       }
+    //   })
+    // });
+    print('$amount Is the current Balance');
+    return await amount;
+  }
 }

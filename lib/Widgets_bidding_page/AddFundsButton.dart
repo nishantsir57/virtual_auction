@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/ActiveBids.dart';
+import 'package:virtual_auction/development/FetchProfile.dart';
 
 class AddFunds extends StatelessWidget {
   @override
@@ -28,7 +29,7 @@ class AddFundsViewState extends State<AddFundsView> {
         children: <Widget>[
           Container(
               height: 40,
-              child: accountBalance("Balance: 101")),
+              child: accountBalance()),
          Container(
              child: addfunds(addAmountValue))
         ],
@@ -37,22 +38,32 @@ class AddFundsViewState extends State<AddFundsView> {
   }
 }
 
-Widget accountBalance(String howmuch){
-  return Container(
-    child: Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Text(howmuch,
-        textAlign: TextAlign.start,
-        style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-            letterSpacing: 2,
-            wordSpacing: 5,
-            color: Colors.black
-        ),
-      ),
-    ),
+Widget accountBalance(){
+  return FutureBuilder(
+    future: FetchProfile().getAmount(),
+      builder: (BuildContext context, AsyncSnapshot<double> snapshot)
+      {
+        if(snapshot.hasData)
+        return Container(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(snapshot.data.toString(),
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  letterSpacing: 2,
+                  wordSpacing: 5,
+                  color: Colors.black
+              ),
+            ),
+          ),
+        );
+        else
+          print('No data found');
+      }
   );
+
 }
 
 Widget addfunds(String addAmountValue){
