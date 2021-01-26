@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/ActiveBids.dart';
 import 'package:virtual_auction/development/FetchProfile.dart';
+import 'package:virtual_auction/development/UpdateBalance.dart';
 
 class AddFunds extends StatelessWidget {
   @override
@@ -104,8 +105,9 @@ Widget addfunds(String addAmountValue){
               ),
             ),
             FlatButton(
-              onPressed: () {
-                return null;
+              onPressed: () async{
+               await UpdateBalance().updateBalance(addAmountValue);
+               setState() => null;
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

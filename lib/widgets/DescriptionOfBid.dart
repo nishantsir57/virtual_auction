@@ -14,6 +14,8 @@ class DescriptionBid extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     Stream bids = FirebaseFirestore.instance.collection('bids').snapshots();
+    Stream users = FirebaseFirestore.instance.collection('users').snapshots();
+
     return StreamBuilder<QuerySnapshot>(
         stream: bids,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -28,7 +30,7 @@ class DescriptionBid extends StatelessWidget{
           return DescriptionOfBid();
         },
       );
-    // return DescriptionOfBid();
+
   }
 }
 
