@@ -7,8 +7,10 @@ class UpdateBalance
   Future<void> updateBalance(String amount)async
   {
     String uid=FirebaseAuth.instance.currentUser.email;
-    double previous=await FetchProfile().getAmount();
-    double newBalance=double.parse(amount)+previous;
+    DocumentSnapshot _doc=await FetchProfile().getAmount();
+    String previous=_doc['fund'];
+    print('I am adding the fund $previous');
+    String newBalance=(double.parse(amount)+double.parse(previous)).toString();
     await FirebaseFirestore.instance.collection('users').doc(uid)
     .update(
       {

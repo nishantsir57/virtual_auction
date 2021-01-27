@@ -6,7 +6,7 @@ import 'package:virtual_auction/development/PutBid.dart';
 import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
 import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'BidAmount_TextField.dart';
 import 'CurrentPrice_Wid.dart';
 
@@ -40,13 +40,16 @@ class PlaceBidButtonState extends State<PlaceBidButton>{
           onPressed: () async{
               String bidAmount=await new BidAmountWidgetState().bidAmount;
               double amount=await FetchBids().getAmount(await BidsListViewState().name);
-              print('new bidding amount is $amount');
+
               // await new PutBid().putBid(double.parse(bidAmount), await new BidsDetailCardViewState().Name);
               // await new DescriptionOfBidState().price(bidAmount);
-              double fund=await new FetchProfile().getAmount();
+              DocumentSnapshot _doc=await FetchProfile().getAmount();
+              print('new bidding amount is $amount');
+              String fund=await _doc['fund'];
               if(double.parse(bidAmount) >  amount)
                 {
-                  if(double.parse(bidAmount) > fund)
+                  print('Amount is greater and we are here');
+                  if(double.parse(bidAmount) > double.parse(fund))
                     {
                       showDialog(
                         context: context,
@@ -60,12 +63,14 @@ class PlaceBidButtonState extends State<PlaceBidButton>{
                     }
                   else
                     {
+                      print('processing.....');
                       await new PutBid().putBid(double.parse(bidAmount), await new BidsDetailCardViewState().Name);
                       await new DescriptionOfBidState().price(bidAmount);
                     }
                 }
               else
                 {
+                  print('ooppss BidAmount is less');
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {

@@ -18,23 +18,16 @@ class FetchProfile
     // print(l[0]['name']);
     return l;
   }
-  Future<double> getAmount() async
+  Future<DocumentSnapshot> getAmount() async
   {
     String uid=FirebaseAuth.instance.currentUser.email;
-    List<DocumentSnapshot> l;
+    DocumentSnapshot _doc;
     double amount=0;
     await FirebaseFirestore.instance.collection('users').doc(uid).get().then((value){
-      amount=value['fund'];
+      _doc=value;
     });
-    //   snapshot.docs.forEach((doc) {
-    //     // print(uid);
-    //     if(doc.id == uid)
-    //       {
-    //         l.add(doc);
-    //       }
-    //   })
-    // });
-    print('$amount Is the current Balance');
-    return await amount;
+    String fund=_doc['fund'];
+    print('I am fetching the data $fund');
+    return await _doc;
   }
 }

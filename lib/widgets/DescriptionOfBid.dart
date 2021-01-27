@@ -14,7 +14,7 @@ class DescriptionBid extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     Stream bids = FirebaseFirestore.instance.collection('bids').snapshots();
-    Stream users = FirebaseFirestore.instance.collection('users').snapshots();
+
 
     return StreamBuilder<QuerySnapshot>(
         stream: bids,
@@ -84,6 +84,8 @@ BoxDecoration myBoxDecoration() {
 
 Widget descriptionCard(List<DocumentSnapshot> doc){
 
+  Stream users = FirebaseFirestore.instance.collection('users').snapshots();
+
   return Container(
     color: Colors.white,
     child: Padding(
@@ -129,9 +131,22 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
             margin: new EdgeInsets.only(top: 2),
               child: BidAmount()
           ),
-          Container(
-              margin: new EdgeInsets.only(top: 2),
-              child: AddFunds()
+          StreamBuilder<QuerySnapshot>(
+            stream: users,
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong');
+              }
+
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Text("Loading");
+              }
+
+              return Container(
+                  margin: new EdgeInsets.only(top: 2),
+                  child: AddFunds()
+              );
+            },
           ),
           Container(
               margin: new EdgeInsets.only(top: 2),

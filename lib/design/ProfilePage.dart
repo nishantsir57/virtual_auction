@@ -11,7 +11,22 @@ import 'package:virtual_auction/widgets_login/newName.dart';
 class ProfilePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return ProfilePageWidget();
+    Stream users = FirebaseFirestore.instance.collection('users').snapshots();
+    return StreamBuilder<QuerySnapshot>(
+      stream: users,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
+        return ProfilePageWidget();
+      },
+    );
+    // return ProfilePageWidget();
   }
 }
 

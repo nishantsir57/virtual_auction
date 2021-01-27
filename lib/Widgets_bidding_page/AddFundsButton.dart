@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:virtual_auction/design/ActiveBids.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtual_auction/development/FetchProfile.dart';
 import 'package:virtual_auction/development/UpdateBalance.dart';
 
@@ -42,13 +42,13 @@ class AddFundsViewState extends State<AddFundsView> {
 Widget accountBalance(){
   return FutureBuilder(
     future: FetchProfile().getAmount(),
-      builder: (BuildContext context, AsyncSnapshot<double> snapshot)
+      builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot)
       {
         if(snapshot.hasData)
         return Container(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text(snapshot.data.toString(),
+            child: Text(snapshot.data['fund'].toString(),
               textAlign: TextAlign.start,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -107,7 +107,6 @@ Widget addfunds(String addAmountValue){
             FlatButton(
               onPressed: () async{
                await UpdateBalance().updateBalance(addAmountValue);
-               setState() => null;
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

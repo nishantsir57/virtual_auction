@@ -4,6 +4,8 @@ import 'package:virtual_auction/design/ProfilePage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../widgets/Home_CardView.dart';
 import 'package:virtual_auction/development/FetchProfile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:virtual_auction/design/loginpage.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -54,7 +56,9 @@ class HomeState extends State<Home>{
               color: Colors.black,
               icon: Icon(Icons.live_help),
               onPressed: () async {
-                showAlertDialog(context);
+                await FirebaseAuth.instance.signOut();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                // showAlertDialog(context);
               },
             ),
           ],
