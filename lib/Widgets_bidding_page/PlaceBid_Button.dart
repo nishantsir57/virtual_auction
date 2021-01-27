@@ -39,16 +39,14 @@ class PlaceBidButtonState extends State<PlaceBidButton>{
         child: FlatButton(
           onPressed: () async{
               String bidAmount=await new BidAmountWidgetState().bidAmount;
-              double amount=await FetchBids().getAmount(await BidsListViewState().name);
-
+              double amount=await FetchBids().getAmount(BidsDetailCardViewState().Name);
+              print('new bidding amount is $amount');
               // await new PutBid().putBid(double.parse(bidAmount), await new BidsDetailCardViewState().Name);
               // await new DescriptionOfBidState().price(bidAmount);
               DocumentSnapshot _doc=await FetchProfile().getAmount();
-              print('new bidding amount is $amount');
               String fund=await _doc['fund'];
               if(double.parse(bidAmount) >  amount)
                 {
-                  print('Amount is greater and we are here');
                   if(double.parse(bidAmount) > double.parse(fund))
                     {
                       showDialog(
@@ -63,14 +61,12 @@ class PlaceBidButtonState extends State<PlaceBidButton>{
                     }
                   else
                     {
-                      print('processing.....');
                       await new PutBid().putBid(double.parse(bidAmount), await new BidsDetailCardViewState().Name);
                       await new DescriptionOfBidState().price(bidAmount);
                     }
                 }
               else
                 {
-                  print('ooppss BidAmount is less');
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {

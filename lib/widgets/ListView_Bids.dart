@@ -57,7 +57,6 @@ class BidsListViewState extends State<BidsListView> {
                       currentPrice=list[i]['currentPrice'].toString(),
                       startTime=list[i]['startTime'].toDate().toString(),
                       endTime=list[i]['endTime'].toDate().toString(),
-                      dateOfBid="12-11-2020",
                       bidImageURL=list[i]['bidImageURL'],
                     context
                   ),

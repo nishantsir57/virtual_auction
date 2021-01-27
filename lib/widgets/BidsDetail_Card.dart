@@ -22,7 +22,6 @@ class BidsDetailCardViewState extends State<BidsDetailCardView> {
           BidsListViewState.currentPrice,
           BidsListViewState.startTime,
           BidsListViewState.endTime,
-          BidsListViewState.dateOfBid,
           BidsListViewState.bidImageURL,
           context
       ),
@@ -76,8 +75,9 @@ Widget Nameofbid(String namedata) {
 }
   Widget onlyCard(String nameofbid, String startbidprice,
       String currentbidprice,
-      String starttime, String endtime, String dateofbid, String pathofImage,
+      String starttime, String endtime, String pathofImage,
       BuildContext context) {
+    var name=nameofbid;
     return Container(
       color: Colors.white10,
       height: 200,
@@ -142,9 +142,9 @@ Widget Nameofbid(String namedata) {
                     //     ),
                     //   ],
                     // ),
-                    Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: dataofbid("Date of Bid: " + dateofbid))
+                    // Padding(
+                    //     padding: const EdgeInsets.all(2.0),
+                    //     child: dataofbid("Date of Bid: " + dateofbid))
                   ],
                 ),
               ],

@@ -49,6 +49,7 @@ class FetchBids
           l.add(doc);
       })
     });
-    return l[0]['currentPrice'];
+    String value=l[0]['currentPrice'].toString();
+    return double.parse(value);
   }
 }

@@ -4,6 +4,7 @@ import 'package:virtual_auction/Widgets_bidding_page/PlaceBid_Button.dart';
 import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
 import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
+import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
 
 class BiddigPage extends StatefulWidget{
   @override
@@ -23,7 +24,7 @@ class BiddigPageState extends State<BiddigPage> {
           title: Container(
             // decoration: myBoxDecoration(),
             child: Center(
-                child: Text(BidsListViewState.nameofbid,
+                child: Text(BidsDetailCardViewState().Name,
                   style: TextStyle(
                       fontSize: 20,
                       letterSpacing: 3,
