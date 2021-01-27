@@ -8,8 +8,21 @@ class FetchBids
     await FirebaseFirestore.instance.collection('bids').get()
     .then((snapshot) => {
       snapshot.docs.forEach((doc) {
-        if(doc['status'] == value)
-          l.add(doc);
+        var now=DateTime.now();
+        var start=doc['startTime'].toDate();
+        var end=doc['endTime'].toDate();
+        if(value == 'active' && now.isAfter(start) && now.isBefore(end))
+          {
+            l.add(doc);
+          }
+        else if(value == 'past' && now.isAfter(end))
+          {
+            l.add(doc);
+          }
+        else if(value == 'upcoming' && now.isBefore(start))
+          {
+            l.add(doc);
+          }
       })
     });
     return l;
