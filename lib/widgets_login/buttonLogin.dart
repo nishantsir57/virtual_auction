@@ -94,12 +94,15 @@ class LoginButtonState extends State<LoginButton> {
             alignment: Alignment.center,
             width: MediaQuery.of(context).size.width,
             child: FlatButton(
-              onPressed: () {},
+              onPressed: () {
+
+              },
               child: Text(
                 'Forgot Password?',
                 style: TextStyle(
                   color: Colors.black,
                 ),
+
                 textAlign: TextAlign.right,
               ),
             ),

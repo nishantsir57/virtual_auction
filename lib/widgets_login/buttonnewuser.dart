@@ -45,6 +45,15 @@ class ButtonNewUserState extends State<ButtonNewUser> {
           onPressed: () async{
             String status=await new Signup().signup();
             if(status == 'success') {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return new AlertDialog(
+                    title: new Text('User Registered Successfully'),
+                    // content: new Text(status),
+                  );
+                },
+              );
               Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Home())
