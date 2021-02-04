@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/BiddingPage.dart';
-import 'package:virtual_auction/design/UpComing_Past/Past_BidPage.dart';
 import 'package:virtual_auction/design/UpComing_Past/UP_BidPage.dart';
 
 import '../../widgets/ListView_Bids.dart';

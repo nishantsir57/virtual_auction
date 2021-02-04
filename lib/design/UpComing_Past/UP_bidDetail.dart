@@ -8,7 +8,7 @@ import 'package:virtual_auction/Widgets_bidding_page/Date_Time.dart';
 import 'package:virtual_auction/Widgets_bidding_page/PlaceBid_Button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtual_auction/development/FetchBids.dart';
-import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
+import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Past.dart';
 
 class UpDescription_Up extends StatelessWidget{
   @override

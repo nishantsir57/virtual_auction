@@ -3,24 +3,25 @@ import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Up.dart';
 import '../design/UpComing_Past/BidsDetail_Past.dart';
 import 'package:virtual_auction/development/FetchBids.dart';
 
-class BidsList extends StatelessWidget{
+class BidsListUpcomming extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: BidsListView(),
+      child: BidsListUpcommingView(),
     );
   }
 }
 
-class BidsListView extends StatefulWidget{
+class BidsListUpcommingView extends StatefulWidget{
   @override
-  BidsListViewState createState()=> BidsListViewState();
+  BidsListUpcommingViewState createState()=> BidsListUpcommingViewState();
 }
 
-class BidsListViewState extends State<BidsListView> {
+class BidsListUpcommingViewState extends State<BidsListUpcommingView> {
   static String nameofbid,startPrice,currentPrice,startTime,endTime,dateOfBid;
   static String bidImageURL;
   static String _type;
@@ -51,7 +52,7 @@ class BidsListViewState extends State<BidsListView> {
               itemBuilder: (context, i) {
                 return Container (
                   height: MediaQuery.of(context).size.height/1.6,
-                  child: new BidsDetailCardViewState().onlyCard(
+                  child: new BidsDetailUpState().onlyCard(
                       nameofbid=list[i]['nameofbid'],
                       startPrice=list[i]['startPrice'].toString(),
                       currentPrice=list[i]['currentPrice'].toString(),

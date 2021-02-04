@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/Widgets_bidding_page/PlaceBid_Button.dart';
-import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
+import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Past.dart';
 import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
-import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
+import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Past.dart';
 
 class BiddigPage extends StatefulWidget{
   @override

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:virtual_auction/development/FetchBids.dart';
 import 'package:virtual_auction/development/FetchProfile.dart';
 import 'package:virtual_auction/development/PutBid.dart';
-import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
+import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Past.dart';
 import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

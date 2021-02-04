@@ -8,7 +8,7 @@ import 'package:virtual_auction/Widgets_bidding_page/Date_Time.dart';
 import 'package:virtual_auction/Widgets_bidding_page/PlaceBid_Button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtual_auction/development/FetchBids.dart';
-import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
+import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Past.dart';
 
 class Description_Past extends StatelessWidget{
   @override
@@ -132,7 +132,111 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
                 ),
               ),
             ),
-          )
+          ),
+          Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: new EdgeInsets.all(10.0),
+                  child: ListTile(
+                    tileColor: Colors.green[200],
+                    leading: Text(
+                      "ABCD Charitable Trust",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    trailing: Text(
+                      "₹ 50",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: new EdgeInsets.all(10.0),
+                  child: ListTile(
+                    tileColor: Colors.deepOrangeAccent[100],
+                    leading: Text(
+                      "Vijaykant Charity",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    trailing: Text(
+                      "₹ 40",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: new EdgeInsets.all(10.0),
+                  child: ListTile(
+                    tileColor: Colors.purple[100],
+                    leading: Text(
+                      "Khushbu Trust",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    trailing: Text(
+                      "₹ 30",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: new EdgeInsets.all(10.0),
+                  child: ListTile(
+                    tileColor: Colors.amberAccent[100],
+                    leading: Text(
+                      "Dinanaath Chauhan",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    trailing: Text(
+                      "₹ 20",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     ),
