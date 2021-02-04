@@ -7,7 +7,7 @@ import 'package:virtual_auction/design/home.dart';
 import 'package:virtual_auction/design/newuser_page.dart';
 import 'package:virtual_auction/design/PastBids.dart';
 import 'package:virtual_auction/design/UpcomingBids.dart';
-import 'package:virtual_auction/widgets/BidsDetail_Card.dart';
+import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
 import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 import 'design/BiddingPage.dart';

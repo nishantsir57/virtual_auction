@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'BidsDetail_Card.dart';
+import '../design/UpComing_Past/BidsDetail_Card.dart';
 import 'package:virtual_auction/development/FetchBids.dart';
 
 class BidsList extends StatelessWidget{

@@ -61,6 +61,36 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                   )
               ),
               Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 15, left: 50, right: 50),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white70,
+                        style: BorderStyle.solid,
+                        width: 0.5,
+                      ),
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    // color: Colors.black,
+                    height: 50,
+                    width: MediaQuery.of(context).size.width,
+                    child: RaisedButton(
+                      textColor: Colors.white70,
+                      color: Colors.black87,
+                      child: Text("Send OTP"),
+                      onPressed: () {
+
+                      },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
                   // width: 200,
                   margin: const EdgeInsets.all(10.0),
                   child: Padding(
@@ -123,6 +153,7 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                   ),
                 ),
               ),
+
               Container(
                 // width: 200,
                   margin: const EdgeInsets.all(10.0),

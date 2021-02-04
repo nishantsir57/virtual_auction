@@ -1,15 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/BiddingPage.dart';
+import 'package:virtual_auction/design/UpComing_Past/Past_BidPage.dart';
+import 'package:virtual_auction/design/UpComing_Past/UP_BidPage.dart';
 
-import 'ListView_Bids.dart';
+import '../../widgets/ListView_Bids.dart';
 
-class BidsDetailCardView extends StatefulWidget {
+class BidsDetailUp extends StatefulWidget {
   @override
-  BidsDetailCardViewState createState() => BidsDetailCardViewState();
+  BidsDetailUpState createState() => BidsDetailUpState();
 }
 
-class BidsDetailCardViewState extends State<BidsDetailCardView> {
+class BidsDetailUpState extends State<BidsDetailUp> {
   static String _name;
   get Name => _name;
   @override
@@ -154,7 +156,7 @@ Widget Nameofbid(String namedata) {
               _name=nameofbid;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => BiddigPage()),
+                MaterialPageRoute(builder: (context) => BidPage_UP()),
               );
             },
           ),

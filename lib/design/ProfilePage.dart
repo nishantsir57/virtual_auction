@@ -36,14 +36,33 @@ class ProfilePageWidget extends StatefulWidget{
 }
 
 class ProfilePageWidgetState extends State<ProfilePageWidget>{
+
+  bool _isEditingText = false;
+  TextEditingController _editingController,_editingController_gender;
+  String initialText = "Initial Text";
+  String gender = "Gender";
+
   static String profilePicutrePath="https://i.pinimg.com/originals/eb/2c/14/eb2c14c4effe7277d069c41dd482ab10.jpg";
   List<DocumentSnapshot> _doc=new HomeState().doc;
 
   @override
+  void initState() {
+    super.initState();
+    _editingController = TextEditingController(text: initialText);
+    _editingController_gender = TextEditingController(text: gender);
+  }
+  @override
+  void dispose() {
+    _editingController.dispose();
+    _editingController_gender.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    String _name=_doc[0]['name'];
-    String _email=_doc[0]['email'];
-    String _phone=_doc[0]['phone'];
+    String _name="_doc[0]['name']";
+    String _email="_doc[0]['email']";
+    String _phone="doc[0]['phone']";
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -67,6 +86,9 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
                 dataOfPerson("Name: $_name"),
                 dataOfPerson("Email: $_email"),
                 dataOfPerson("Phone: $_phone"),
+                _editTitleTextField(),
+                _editTitleTextField_gender(),
+                // _editTitleTextField("Gender: $_gender"),
                 Container(
                     height: 55,
                     child: Card(
@@ -83,8 +105,74 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
       ),
     );
   }
-}
 
+  Widget _editTitleTextField() {
+    if (_isEditingText)
+      return Container(
+        height: 55,
+        child: Center(
+          child: TextField(
+            onSubmitted: (newValue) {
+              setState(() {
+                initialText = newValue;
+                _isEditingText = false;
+              });
+            },
+            autofocus: true,
+            controller: _editingController,
+          ),
+        ),
+      );
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _isEditingText = true;
+        });
+      },
+      child: Text(
+        "Age:\t\t\t\t" + initialText,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18.0,
+        ),
+      ),
+    );
+  }
+
+  Widget _editTitleTextField_gender() {
+    if (_isEditingText)
+      return Container(
+        height: 55,
+        child: Center(
+          child: TextField(
+            onSubmitted: (newValue) {
+              setState(() {
+                gender = newValue;
+                _isEditingText = false;
+              });
+            },
+            autofocus: true,
+            controller: _editingController_gender,
+          ),
+        ),
+      );
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _isEditingText = true;
+        });
+      },
+      child: Text(
+        "Gender:\t\t\t\t" + gender,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18.0,
+        ),
+      ),
+    );
+  }
+
+}
 
 Widget profilePicture(String ppPath){
   return Container(
@@ -133,3 +221,4 @@ BoxDecoration mBoxDecoration() {
     ),
   );
 }
+

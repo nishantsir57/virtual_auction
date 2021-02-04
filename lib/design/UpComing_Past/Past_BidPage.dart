@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/Widgets_bidding_page/PlaceBid_Button.dart';
+import 'package:virtual_auction/design/UpComing_Past/Past_bidDetail.dart';
+import 'package:virtual_auction/design/UpComing_Past/UP_bidDetail.dart';
 import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
 import 'package:virtual_auction/widgets/DescriptionOfBid.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
 
-class BiddigPage extends StatefulWidget{
+class BidPage_Past extends StatefulWidget{
   @override
-  BiddigPageState createState()=> BiddigPageState();
+  BidPage_PastState createState()=> BidPage_PastState();
 }
 
-class BiddigPageState extends State<BiddigPage> {
+class BidPage_PastState extends State<BidPage_Past> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,7 +37,7 @@ class BiddigPageState extends State<BiddigPage> {
             ),
           ),
         ),
-        body: new DescriptionBid()
+        body: new Description_Past()
       ),
     );
   }

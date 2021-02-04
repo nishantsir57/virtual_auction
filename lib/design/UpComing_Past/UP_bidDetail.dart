@@ -10,7 +10,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtual_auction/development/FetchBids.dart';
 import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Card.dart';
 
-class DescriptionBid extends StatelessWidget{
+class UpDescription_Up extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     Stream bids = FirebaseFirestore.instance.collection('bids').snapshots();
@@ -27,19 +27,19 @@ class DescriptionBid extends StatelessWidget{
             return Text("Loading");
           }
 
-          return DescriptionOfBid();
+          return UpDescription();
         },
       );
 
   }
 }
 
-class DescriptionOfBid extends StatefulWidget{
+class UpDescription extends StatefulWidget{
   @override
-  DescriptionOfBidState createState()=> DescriptionOfBidState();
+  UpDescriptionState createState()=> UpDescriptionState();
 }
 
-class DescriptionOfBidState extends State<DescriptionOfBid> {
+class UpDescriptionState extends State<UpDescription> {
   static String _bidName;
   static String _price;
   static String _bidderName;
@@ -115,43 +115,24 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
               child: ItemDesc(),
             ),
           ),
-          Container(
-            color: Colors.deepOrangeAccent,
-            margin: new EdgeInsets.all(2.0),
-            child: Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: new Price(),
-            ),
-          ),
+
           Container(
               margin: new EdgeInsets.only(top: 2),
               child: DateTime(doc[0]['startTime'].toDate().toString(), doc[0]['endTime'].toDate().toString())
           ),
           Container(
-            margin: new EdgeInsets.only(top: 2),
-              child: BidAmount()
-          ),
-          StreamBuilder<QuerySnapshot>(
-            stream: users,
-            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              if (snapshot.hasError) {
-                return Text('Something went wrong');
-              }
+            child: Center(
+              child: Text(
+                "Bid is not active yet!!",
 
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Text("Loading");
-              }
-
-              return Container(
-                  margin: new EdgeInsets.only(top: 2),
-                  child: AddFunds()
-              );
-            },
-          ),
-          Container(
-              margin: new EdgeInsets.only(top: 2),
-              child: PlaceBid()
-          ),
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+          )
         ],
       ),
     ),
