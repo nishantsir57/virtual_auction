@@ -43,6 +43,19 @@ class ButtonNewUserState extends State<ButtonNewUser> {
             color: Colors.black, borderRadius: BorderRadius.circular(30)),
         child: FlatButton(
           onPressed: () async{
+            String adhar=Signup().adhar;
+            if(adhar.length >12 || adhar.length < 12)
+              {
+                return showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return new AlertDialog(
+                      title: new Text('Invalid Adhar Number'),
+                      // content: new Text(status),
+                    );
+                  },
+                );
+              }
             String status=await new Signup().signup();
             if(status == 'success') {
               showDialog(

@@ -12,6 +12,7 @@ class Signup
   static String _name;
   static String _adhar;
   static String _phone;
+  get adhar => _adhar;
   set email(String e) => _email=e;
   set password(String p) => _pass=p;
   set name(String n) => _name=n;

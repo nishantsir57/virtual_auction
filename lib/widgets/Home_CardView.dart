@@ -81,21 +81,21 @@ class CardViewState extends State<Card1> {
             ),
             onTap: () {
               if(value == 'Active\nBids') {
-               new BidsListViewState().type = 'active';
+                BidsListViewState.type1= 'active';
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ActiveBids()),
                 );
               }
               else if(value == 'Upcoming\nBids') {
-                new BidsListViewState().type = 'upcoming';
+                BidsListViewState.type1='upcoming';
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => UpcomingBids()),
                 );
               }
               else if(value == 'Past\nBids') {
-                new BidsListViewState().type = 'past';
+                BidsListViewState.type1= 'past';
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => PastBids()),

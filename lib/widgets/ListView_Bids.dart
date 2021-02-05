@@ -23,15 +23,15 @@ class BidsListView extends StatefulWidget{
 class BidsListViewState extends State<BidsListView> {
   static String nameofbid,startPrice,currentPrice,startTime,endTime,dateOfBid;
   static String bidImageURL;
-  static String _type;
-  set type(String value) => _type=value;
-  get type=>_type;
+  static String type1;
+  set type(String value) => type1=value;
+  get type=>type1;
   get name => nameofbid;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: FetchBids().fetchBids(_type),
+      future: FetchBids().fetchBids(type1),
       builder: (BuildContext context, AsyncSnapshot<List<DocumentSnapshot>> snapshot) {
         if (snapshot.hasData) {
           return createList(snapshot.data);

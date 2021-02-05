@@ -1,3 +1,4 @@
+import 'package:virtual_auction/design/ForgetPassword.dart';
 import 'package:virtual_auction/design/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -95,7 +96,10 @@ class LoginButtonState extends State<LoginButton> {
             width: MediaQuery.of(context).size.width,
             child: FlatButton(
               onPressed: () {
-
+                return Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ForgetPage())
+                );
               },
               child: Text(
                 'Forgot Password?',

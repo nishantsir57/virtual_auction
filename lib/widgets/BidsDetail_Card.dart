@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/BiddingPage.dart';
+import 'package:virtual_auction/design/PastBiddingPage.dart';
+import 'package:virtual_auction/design/UpcomingBiddingPage.dart';
 
 import 'ListView_Bids.dart';
 
@@ -128,34 +130,34 @@ Widget Nameofbid(String namedata) {
                     Padding(
                         padding: const EdgeInsets.all(2.0),
                         child: dataofbid("End Time: " + endtime)),
-                    // Row(
-                    //   mainAxisSize: MainAxisSize.max,
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     Padding(
-                    //         padding: const EdgeInsets.all(2.0),
-                    //         child: dataofbid("Start Time: "+starttime)
-                    //     ),
-                    //     Padding(
-                    //         padding: const EdgeInsets.all(2.0),
-                    //         child: dataofbid("End Time: "+endtime)
-                    //     ),
-                    //   ],
-                    // ),
-                    // Padding(
-                    //     padding: const EdgeInsets.all(2.0),
-                    //     child: dataofbid("Date of Bid: " + dateofbid))
+
                   ],
                 ),
               ],
             ),
             onTap: () {
-              //TODO HERE
               _name=nameofbid;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => BiddigPage()),
-              );
+              if(BidsListViewState.type1 == 'active')
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BiddigPage()),
+                  );
+                }
+              else if(BidsListViewState.type1 == 'past')
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PastBiddigPage()),
+                  );
+                }
+              else
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UpcomingBiddigPage()),
+                  );
+                }
             },
           ),
         ),
