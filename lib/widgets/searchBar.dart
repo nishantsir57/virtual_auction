@@ -48,7 +48,7 @@ class _SearchBarDemoHomeState extends State<SearchBarDemoHome> {
       appBar: searchBar.build(context),
       key: _scaffoldKey,
       body: new Center(
-          child: new Text("Don't look at me! Press the search button!")),
+          child: new Text("")),
     );
   }
 }
