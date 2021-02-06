@@ -5,6 +5,7 @@ import 'package:virtual_auction/Widgets_bidding_page/AddFundsButton.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtual_auction/design/home.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
+import 'package:virtual_auction/widgets_login/LogoutButton.dart';
 import 'package:virtual_auction/widgets_login/inputPhone.dart';
 import 'package:virtual_auction/widgets_login/newName.dart';
 
@@ -80,26 +81,33 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
         body: new Container(
           alignment: Alignment.centerLeft,
           decoration: mBoxDecoration(),
-          child: ListView(
-              children: <Widget>[
-                profilePicture("https://i.pinimg.com/originals/eb/2c/14/eb2c14c4effe7277d069c41dd482ab10.jpg"),
-                dataOfPerson("Name: $_name"),
-                dataOfPerson("Email: $_email"),
-                dataOfPerson("Phone: $_phone"),
-                _editTitleTextField(),
-                _editTitleTextField_gender(),
-                // _editTitleTextField("Gender: $_gender"),
-                Container(
-                    height: 55,
-                    child: Card(
-                        child: accountBalance()
-                    )
+          child: Column(
+              children: [
+                Expanded(
+                  child: ListView(
+                      children: <Widget>[
+                        profilePicture("https://i.pinimg.com/originals/eb/2c/14/eb2c14c4effe7277d069c41dd482ab10.jpg"),
+                        dataOfPerson("Name: $_name"),
+                        dataOfPerson("Email: $_email"),
+                        dataOfPerson("Phone: $_phone"),
+                        _editTitleTextField(),
+                        _editTitleTextField_gender(),
+                        // _editTitleTextField("Gender: $_gender"),
+                        Container(
+                            height: 55,
+                            child: Card(
+                                child: accountBalance()
+                            )
+                        ),
+                        Container(
+                            margin: EdgeInsets.all(3.0),
+                            child: addfunds(AddFundsViewState.addAmountValue))
+                        // dataOfPerson("personData")
+                      ]
+                  ),
                 ),
-                Container(
-                  margin: EdgeInsets.all(3.0),
-                    child: addfunds(AddFundsViewState.addAmountValue))
-                // dataOfPerson("personData")
-              ]
+                LogoutButton()
+              ],
           ),
         ),
       ),
