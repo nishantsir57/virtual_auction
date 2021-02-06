@@ -9,6 +9,7 @@ import 'package:virtual_auction/Widgets_bidding_page/PlaceBid_Button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtual_auction/development/FetchBids.dart';
 import 'package:virtual_auction/design/UpComing_Past/BidsDetail_Past.dart';
+import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
 class Description_Past extends StatelessWidget{
   @override
@@ -85,7 +86,9 @@ BoxDecoration myBoxDecoration() {
 Widget descriptionCard(List<DocumentSnapshot> doc){
 
   Stream users = FirebaseFirestore.instance.collection('users').snapshots();
-
+  String price=BidsListViewState().price;
+  double value=double.parse(price)*0.05;
+  int amount=value.toInt();
   return Container(
     color: Colors.white,
     child: Padding(
@@ -148,7 +151,7 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
                       ),
                     ),
                     trailing: Text(
-                      "₹ 50",
+                      "₹ $amount",
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -174,7 +177,7 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
                       ),
                     ),
                     trailing: Text(
-                      "₹ 40",
+                      "₹ $amount",
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -200,7 +203,7 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
                       ),
                     ),
                     trailing: Text(
-                      "₹ 30",
+                      "₹ $amount",
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -226,7 +229,7 @@ Widget descriptionCard(List<DocumentSnapshot> doc){
                       ),
                     ),
                     trailing: Text(
-                      "₹ 20",
+                      "₹ $amount",
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,

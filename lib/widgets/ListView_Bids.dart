@@ -27,6 +27,7 @@ class BidsListViewState extends State<BidsListView> {
   set type(String value) => type1=value;
   get type=>type1;
   get name => nameofbid;
+  get price => currentPrice;
 
   @override
   Widget build(BuildContext context) {

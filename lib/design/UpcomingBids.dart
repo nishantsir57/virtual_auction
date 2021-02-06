@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/home.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
-import 'package:virtual_auction/widgets/ListView_UpComming.dart';
 
 class UpcomingBids extends StatefulWidget{
   @override
@@ -48,7 +47,7 @@ class UpcomingBidsState extends State<UpcomingBids> {
             ),
           ),
         ),
-        body: new BidsListUpcommingView(),
+        body: new BidsListView(),
       ),
     );
   }

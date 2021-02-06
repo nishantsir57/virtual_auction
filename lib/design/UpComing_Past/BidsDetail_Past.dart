@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/BiddingPage.dart';
 import 'package:virtual_auction/design/PastBiddingPage.dart';
+import 'package:virtual_auction/design/UpComing_Past/Past_BidPage.dart';
+import 'package:virtual_auction/design/UpComing_Past/UP_BidPage.dart';
 import 'package:virtual_auction/design/UpcomingBiddingPage.dart';
-
-import 'ListView_Bids.dart';
+import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
 class BidsDetailCardView extends StatefulWidget {
   @override
@@ -137,6 +138,16 @@ Widget Nameofbid(String namedata) {
             ),
             onTap: () {
               _name=nameofbid;
+              // showDialog(
+              //   context: context,
+              //   builder: (BuildContext context) {
+              //     return new AlertDialog(
+              //       title: new Text(BidsListViewState.type1),
+              //       // content: new Text(status),
+              //     );
+              //   },
+              // );
+              print(BidsListViewState.type1);
               if(BidsListViewState.type1 == 'active')
                 {
                   Navigator.push(
@@ -148,14 +159,26 @@ Widget Nameofbid(String namedata) {
                 {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PastBiddigPage()),
+                    MaterialPageRoute(builder: (context) => BidPage_Past()),
+                  );
+                }
+              else if(BidsListViewState.type1 == 'upcoming')
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BidPage_UP()),
                   );
                 }
               else
                 {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => UpcomingBiddigPage()),
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return new AlertDialog(
+                        title: new Text(BidsListViewState.type1),
+                        // content: new Text(status),
+                      );
+                    },
                   );
                 }
             },

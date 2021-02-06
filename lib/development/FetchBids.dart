@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
 class FetchBids
 {
@@ -11,15 +12,15 @@ class FetchBids
         var now=DateTime.now();
         var start=doc['startTime'].toDate();
         var end=doc['endTime'].toDate();
-        if(value == 'active' && now.isAfter(start) && now.isBefore(end))
+        if(BidsListViewState.type1 == 'active' && now.isAfter(start) && now.isBefore(end))
           {
             l.add(doc);
           }
-        else if(value == 'past' && now.isAfter(end))
+        else if(BidsListViewState.type1 == 'past' && now.isAfter(end))
           {
             l.add(doc);
           }
-        else if(value == 'upcoming' && now.isBefore(start))
+        else if(BidsListViewState.type1 == 'upcoming' && now.isBefore(start))
           {
             l.add(doc);
           }

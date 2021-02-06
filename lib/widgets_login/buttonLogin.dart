@@ -1,10 +1,9 @@
-import 'package:virtual_auction/design/ForgetPassword.dart';
+// import 'package:virtual_auction/design/ForgetPassword.dart';
+import 'package:virtual_auction/design/Login/ForgetPassword.dart';
 import 'package:virtual_auction/design/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/development/Login.dart';
-import 'package:virtual_auction/widgets_login/inputPhone.dart';
-import 'package:virtual_auction/widgets_login/password.dart';
 
 class LoginButtonWidget extends StatelessWidget {
   @override
