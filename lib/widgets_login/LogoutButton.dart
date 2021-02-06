@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/Login/loginpage.dart';
@@ -40,8 +41,8 @@ class LoginButtonWidgetState extends State<LoginButtonWidget>{
                 padding: const EdgeInsets.all(8.0),
                 child: FlatButton(
                   splashColor: Colors.black45,
-                  onPressed: (
-                      ) {
+                  onPressed: () async{
+                    await FirebaseAuth.instance.signOut();
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => LoginPage())

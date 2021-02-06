@@ -56,9 +56,9 @@ class HomeState extends State<Home>{
               color: Colors.black,
               icon: Icon(Icons.live_help),
               onPressed: () async {
-                await FirebaseAuth.instance.signOut();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                // showAlertDialog(context);
+                // await FirebaseAuth.instance.signOut();
+                // Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                showAlertDialog(context);
               },
             ),
           ],
