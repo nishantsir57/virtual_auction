@@ -28,6 +28,20 @@ class FetchBids
     });
     return l;
   }
+  Future<List<DocumentSnapshot>> fetchAllBids(String value) async
+  {
+    List<DocumentSnapshot> l=new List<DocumentSnapshot>();
+    await FirebaseFirestore.instance.collection('bids').get()
+        .then((snapshot) => {
+      snapshot.docs.forEach((doc) {
+        var now=DateTime.now();
+        var start=doc['startTime'].toDate();
+        var end=doc['endTime'].toDate();
+        l.add(doc);
+      })
+    });
+    return l;
+  }
   Future<List<DocumentSnapshot>> fetchBid(String name) async
   {
     List<DocumentSnapshot> l=new List<DocumentSnapshot>();

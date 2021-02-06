@@ -23,7 +23,7 @@ class NewNameState extends State<NewName> {
         height: 55,
         width: MediaQuery.of(context).size.width,
         child: TextField(
-          onChanged: (value) => new Signup().name=value,
+          onChanged: (value) => Signup().name=value,
           style: TextStyle(
             color: Colors.white,
           ),

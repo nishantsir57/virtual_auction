@@ -44,7 +44,7 @@ class HomeState extends State<Home>{
           title: Center(
               child: Text("Virtual Auction",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 14,
                   letterSpacing: 3,
                   wordSpacing: 6,
                   color: Colors.black

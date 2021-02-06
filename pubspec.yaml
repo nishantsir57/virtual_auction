@@ -34,6 +34,7 @@ dependencies:
   firebase_auth: "^0.18.3"
   cloud_firestore: "^0.14.3"
   upi_india: ^2.2.0+1
+  mailer2: ^1.2.5
 
 dev_dependencies:
   flutter_test:

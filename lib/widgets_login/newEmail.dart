@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:virtual_auction/design/Login/ForgetPassword.dart';
 import 'package:virtual_auction/development/Login.dart';
 import 'package:virtual_auction/development/Signup.dart';
 
@@ -30,8 +31,9 @@ class NewEmailState extends State<NewEmail> {
             color: Colors.white,
           ),
           onChanged: (value){
-            new Signup().email=value;
-            new Login().email=value;
+            Signup().email=value;
+            ForgetPageWidgetState.email=value;
+            Login().email=value;
             print(value);
           },
           decoration: InputDecoration(
@@ -42,7 +44,7 @@ class NewEmailState extends State<NewEmail> {
                 )
             ),
             fillColor: Colors.lightBlueAccent,
-            labelText: 'E-mail',
+            labelText: 'E-mail*',
             labelStyle: TextStyle(
               color: Colors.white70,
             ),

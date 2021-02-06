@@ -22,6 +22,7 @@ class LoginButton extends StatefulWidget {
 class LoginButtonState extends State<LoginButton> {
   @override
   Widget build(BuildContext context) {
+    print('I am at Login button Page');
     return Padding(
       padding: const EdgeInsets.only(top: 50, left: 40, right: 40, bottom: 20),
       child: Column(
@@ -95,6 +96,7 @@ class LoginButtonState extends State<LoginButton> {
             width: MediaQuery.of(context).size.width,
             child: FlatButton(
               onPressed: () {
+                print('I am going to forget page');
                 return Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ForgetPage())

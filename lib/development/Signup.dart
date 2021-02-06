@@ -34,7 +34,7 @@ class Signup
         print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
         return 'The account already exists for given email.';
-        print("The account already exists for that email.");
+        // print("The account already exists for that email.");
       }
     }
     catch(e)
