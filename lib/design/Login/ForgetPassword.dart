@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:virtual_auction/design/NewPasswordPage.dart';
-import 'package:virtual_auction/design/loginpage.dart';
+import 'package:virtual_auction/design/Login/NewPasswordPage.dart';
+import 'package:virtual_auction/design/Login/loginpage.dart';
 import 'package:virtual_auction/widgets_login/newEmail.dart';
 
 class ForgetPage extends StatelessWidget{

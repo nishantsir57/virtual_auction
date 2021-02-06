@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:virtual_auction/design/newuser_page.dart';
+import 'package:virtual_auction/design/Login/newuser_page.dart';
 
 class FirstTimeWidget extends StatelessWidget {
   @override

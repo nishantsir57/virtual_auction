@@ -1,4 +1,4 @@
-import 'package:virtual_auction/design/ForgetPassword.dart';
+import 'package:virtual_auction/design/Login/ForgetPassword.dart';
 import 'package:virtual_auction/design/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

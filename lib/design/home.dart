@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../widgets/Home_CardView.dart';
 import 'package:virtual_auction/development/FetchProfile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:virtual_auction/design/loginpage.dart';
+import 'package:virtual_auction/design/Login/loginpage.dart';
 
 class Home extends StatefulWidget{
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:virtual_auction/design/loginpage.dart';
+import 'package:virtual_auction/design/Login/loginpage.dart';
 import 'package:virtual_auction/widgets_login/password.dart';
 
 class NewPasswordPage extends StatelessWidget{
