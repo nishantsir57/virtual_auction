@@ -60,9 +60,9 @@ class ProfilePageWidgetState extends State<ProfilePageWidget>{
 
   @override
   Widget build(BuildContext context) {
-    String _name="_doc[0]['name']";
-    String _email="_doc[0]['email']";
-    String _phone="doc[0]['phone']";
+    String _name=_doc[0]['name'];
+    String _email=_doc[0]['email'];
+    String _phone=_doc[0]['phone'];
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
