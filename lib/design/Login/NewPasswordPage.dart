@@ -1,25 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:virtual_auction/design/NewPasswordPage.dart';
-import 'package:virtual_auction/design/loginpage.dart';
-import 'package:virtual_auction/widgets_login/newEmail.dart';
+import 'package:virtual_auction/design/Login/loginpage.dart';
+import 'package:virtual_auction/widgets_login/password.dart';
 
-class ForgetPage extends StatelessWidget{
+class NewPasswordPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return ForgetPageWidget();
+    return NewPasswordPageWidget();
   }
 
 }
 
-class ForgetPageWidget extends StatefulWidget{
+class NewPasswordPageWidget extends StatefulWidget{
   @override
-  ForgetPageWidgetState createState()=>ForgetPageWidgetState();
+  NewPasswordPageWidgetState createState()=>NewPasswordPageWidgetState();
 }
 
 
-class ForgetPageWidgetState extends State<ForgetPageWidget>{
-  static String otpforverification;
+class NewPasswordPageWidgetState extends State<NewPasswordPageWidget>{
+  // static String ;
   @override
   Widget build(BuildContext context) {
 
@@ -43,7 +42,7 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                 child: Padding(
                   padding: new EdgeInsets.only(top: 170),
                   child: Text(
-                    "Forget Password? Don't Worry.",
+                    "Enter New Password",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -57,7 +56,33 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                   margin: const EdgeInsets.all(10.0),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 20),
-                    child: NewEmail(),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50, right: 50),
+                      child: Container(
+                        color: Colors.white10,
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        child: TextField(
+                          // onChanged: (value) => =value,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.greenAccent,
+                                    width: 0.1
+                                )
+                            ),
+                            labelText: 'Enter New Password*',
+                            labelStyle: TextStyle(
+                              color: Colors.white70,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   )
               ),
               Container(
@@ -70,7 +95,7 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                       height: 50,
                       width: MediaQuery.of(context).size.width,
                       child: TextField(
-                        onChanged: (value) => otpforverification=value,
+                        onChanged: (value) => null,                                   //todo here
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -82,7 +107,7 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                               )
                           ),
                           fillColor: Colors.lightBlueAccent,
-                          labelText: 'Enter OTP*',
+                          labelText: 'Confirm New Password*',
                           labelStyle: TextStyle(
                             color: Colors.white70,
                           ),
@@ -92,6 +117,7 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                   )
               ),
               Container(
+                margin: new EdgeInsets.only(top: 20),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 15, left: 50, right: 50),
                   child: Container(
@@ -110,10 +136,10 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                     child: RaisedButton(
                       textColor: Colors.white70,
                       color: Colors.black87,
-                      child: Text("Reset Password"),
+                      child: Text("Confirm"),
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(
-                          builder: (context)=>NewPasswordPage()
+                            builder: (context)=>LoginPage()
                         ));
                       },
                       shape: new RoundedRectangleBorder(
@@ -122,43 +148,7 @@ class ForgetPageWidgetState extends State<ForgetPageWidget>{
                     ),
                   ),
                 ),
-              ),
-              Container(
-                // width: 200,
-                  margin: const EdgeInsets.all(10.0),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 50, right: 50),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.white70,
-                            style: BorderStyle.solid,
-                            width: 0.5,
-                          ),
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        // color: Colors.black,
-                        height: 50,
-                        width: MediaQuery.of(context).size.width,
-                        child: RaisedButton(
-                          textColor: Colors.white70,
-                          color: Colors.black87,
-                          child: Text("Remember Again? Login"),
-                          onPressed: () {
-                            Navigator.push(context,
-                            MaterialPageRoute(builder: (context)=>LoginPage()));
-                          },
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-              ),
+              )
             ],
           ),
         ),
