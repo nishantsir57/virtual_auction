@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
+import 'package:virtual_auction/widgets/SearchListView.dart';
 
 class SearchBarDemoApp extends StatelessWidget {
   @override
@@ -25,7 +26,7 @@ class _SearchBarDemoHomeState extends State<SearchBarDemoHome> {
 
   void onSubmitted(String value) {
     setState(() {
-      return
+      return SearchListView();
     });
   }
 

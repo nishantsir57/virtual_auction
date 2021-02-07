@@ -42,29 +42,26 @@ class AddFundsViewState extends State<AddFundsView> {
 Widget accountBalance(){
   return FutureBuilder(
     future: FetchProfile().getAmount(),
-      builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot)
-      {
-        if(snapshot.hasData)
-        return Container(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(snapshot.data['fund'].toString(),
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  letterSpacing: 2,
-                  wordSpacing: 5,
-                  color: Colors.black
+      builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasData)
+          return Container(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                snapshot.data['fund'].toString(),
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    letterSpacing: 2,
+                    wordSpacing: 5,
+                    color: Colors.black),
               ),
             ),
-          ),
-        );
+          );
         else
           print('No data found');
-      }
-  );
-
+      });
 }
 
 Widget addfunds(String addAmountValue){
