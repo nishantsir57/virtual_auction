@@ -16,7 +16,7 @@ class SendEmail
     String email;
     String name;
     var price;
-    l.forEach((doc) {
+    await l.forEach((doc) async{
       var now=DateTime.now();
       var end=doc['endTime'].toDate();
       if(now.isAfter(end))
@@ -24,25 +24,27 @@ class SendEmail
           email=doc['email'];
           name=doc['nameofbid'];
           price=doc['currentPrice'];
+          var emailTransport = await new SmtpTransport(options);
+          print('Name is $name , $email , $price');
+          // Create our mail/envelope.
+          var envelope = new Envelope()
+            ..from = 'parveennazma71@gmail.com'
+            ..recipients.add(email)
+            ..subject = 'Auctionn Winning Email'
+            ..text = 'Congrats You have won the auction $name at price $price';
+
+          // Email it.
+          await emailTransport.send(envelope)
+              .then((envelope) => print('Email sent!'))
+              .catchError((e) => print('Error occurred: $e'));
+          print('email sent to $email');
         }
 
     });
     // How you use and store passwords is up to you. Beware of storing passwords in plain.
-    print('Name is $name , $email , $price');
+
     // Create our email transport.
-    var emailTransport = await new SmtpTransport(options);
 
-    // Create our mail/envelope.
-    var envelope = new Envelope()
-      ..from = 'parveennazma71@gmail.com'
-      ..recipients.add(email)
-      ..subject = 'Auctionn Winning Email'
-      ..text = 'Congrats You have won the auction $name at price $price';
 
-    // Email it.
-    await emailTransport.send(envelope)
-        .then((envelope) => print('Email sent!'))
-        .catchError((e) => print('Error occurred: $e'));
-    print('email sent to $email');
   }
 }
