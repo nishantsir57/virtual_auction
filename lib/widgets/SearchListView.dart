@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_auction/design/BiddingPage.dart';
 import 'package:virtual_auction/design/UpComing_Past/Past_BidPage.dart';
 import 'package:virtual_auction/design/UpComing_Past/UP_BidPage.dart';
+import 'package:virtual_auction/development/FetchBids.dart';
 import 'package:virtual_auction/widgets/ListView_Bids.dart';
 
 class SearchListView extends StatelessWidget{
@@ -19,21 +21,39 @@ class SearchListViewWidget extends StatefulWidget{
 class SearchListViewState extends State<SearchListViewWidget> {
   static String _name;
   get Name => _name;
+  set Name(value) => _name=value;
+  static String _nameofbid, _startPrice, _currentPrice, _startTime, _endTime, _bidImageURL;
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      body: new ListView(
-        children: [
-          onlyCard(BidsListViewState.nameofbid,
-              BidsListViewState.startPrice,
-              BidsListViewState.currentPrice,
-              BidsListViewState.startTime,
-              BidsListViewState.endTime,
-              BidsListViewState.bidImageURL,
-              context)
-        ],
-      ),
+      body: FutureBuilder(
+        future: FetchBids().fetchAllBids(),
+          builder: (context, AsyncSnapshot<List<DocumentSnapshot>> snapshot) {
+          DocumentSnapshot doc;
+          if(snapshot.hasData)
+            {
+              snapshot.data.forEach((value){
+                if(value['nameofbid'] == _name)
+                  {
+                    doc=value;
+                  }
+              });
+            }
+            return new ListView(
+              children: [
+                onlyCard(
+                    doc['nameofbid'],
+                    doc['startPrice'],
+                    doc['currentPrice'],
+                    doc['startTime'],
+                    doc['endTime'],
+                    doc['bidImageURL'],
+                    context)
+              ],
+            );
+          },
+      )
     );
   }
 

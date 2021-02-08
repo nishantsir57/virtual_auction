@@ -26,6 +26,7 @@ class _SearchBarDemoHomeState extends State<SearchBarDemoHome> {
 
   void onSubmitted(String value) {
     setState(() {
+      SearchListViewState().Name = value;
       return SearchListView();
     });
   }
